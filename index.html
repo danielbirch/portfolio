@@ -5,51 +5,66 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="/dist/output.css" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Daniel Birch | Frontend Web Developer</title>
 </head>
-<body class="w-full bg-[#fff] font-body text-base subpixel-antialiased text-slate-700">
+<body class="w-full bg-[#fff] dark:bg-[#000] font-body text-base subpixel-antialiased text-slate-600">
 
-  <header class="flex flex-row w-full mx-auto justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] dbshadow">
+  <header class="flex flex-row w-full mx-auto h-[70px] justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] dbshadow">
     <div id="container" class="flex w-[1200px]">
-      <div class="flex flex-auto flex-wrap justify-center content-center w-2/12 p-3">
-        <img src="#" alt="Daniel Birch Logo" class="">
+      <div class="flex flex-auto flex-wrap justify-center content-center w-3/12 p-3">
+        <a href="https://danielbirch.dev"><img src="/assets/dbdev-logo.svg" alt="Daniel Birch Logo" class="w-56 h-auto"></a>
       </div>
-      <div class="flex flex-auto flex-wrap justify-end content-center w-8/12 p-3 text-[1.03rem] font-semibold text-zinc-900">
+      <div class="flex flex-auto flex-wrap justify-end content-center w-6/12 p-3 text-[1.03rem] font-semibold text-slate-600">
         <nav>
-          <a href="#" class="link md:mr-5">About Me</a>
-          <a href="#" class="link md:mr-5">Skills</a>
-          <a href="#" class="link md:mr-5">Explore Portfolio</a>
-          <a href="#" class="link">Resources</a>
+          <a href="#about" class="link md:mr-5">About Me</a>
+          <a href="#portfolio" class="link md:mr-5">Explore Portfolio</a>
+          <a href="/resources.html" class="link">Resources</a>
         </nav>
       </div>
       <div class="flex flex-auto flex-wrap md:justify-end content-center w-2/12 p-3">
-        <button class="px-4 py-2 bg-sky-950 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Contact Me</button>
+        <a href="#contact" class="px-4 py-2 bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Contact Me</a>
+      </div>
+      <div class="flex flex-auto flex-wrap justify-end content-center w-1/12">
+        <a href="https://github.com/danielbirch" target="_blank"><i class="fa-brands fa-github m-3 text-2xl"></i></a>
+        <i id="light" class="fa-regular fa-lightbulb m-3 text-2xl cursor-pointer"></i>
+        <i id="dark" class="fa-solid fa-lightbulb m-3 text-2xl cursor-pointer hidden"></i>
       </div>
     </div>
   </header>
 
   <!-- ABOUT ME SECTION -->
-  <div id="about-container" class="flex flex-row w-full bg-gradient-to-t from-[#fff] to-sky-100">
+  <div id="about" class="flex flex-row w-full bg-gradient-to-t from-[#fff] to-sky-100">
     <div id="about-inner" class="flex flex-row w-[1200px] mx-auto pt-[100px]">
       <div id="about-image" class="flex flex-wrap justify-center content-center w-4/12 pl-10">
         <img src="/assets/daniel-about.png" alt="Daniel Birch">
       </div>
-      <div id="about-text" class="flex flex-wrap justify-end content-center w-8/12 pr-10">
-        <h1 class="font-sans font-semibold text-5xl text-right text-slate-600 leading-tight">Hey there 👋<br/>I'm Daniel Birch</h1>
-        <p class="font-body text-xl text-right py-6">Some other text goes here explaining how awesome I am and why someone should hire me to build amazing apps and websites for their clients.</p>
-        <a href="#portfolio-container" class="text-lg font-semibold">View Portfolio</a>
+      <div id="about-text" class="flex flex-wrap flex-col justify-center content-center w-8/12 pl-16 pr-4">
+        <h1 class="font-sans font-semibold text-5xl text-right text-slate-500 leading-tight">Daniel Birch</h1>
+        <h2 class="font-sans font-medium text-3xl text-right text-slate-400 leading-tight">Frontend Web Developer</h2>
+        <p class="font-body text-xl text-right py-6">
+          Programming is an opportunity to solve a problem, to build something interesting and useful. I get a lot of satisfaction building projects from start to finish, including a desiging a wireframe prior to building the project. As part of my continued professional development, I continue to learn new frameworks, programming languages and tools.
+        </p>
+        <p class="font-body text-xl text-right py-6">
+          On a personal note, I enjoy going to the gym, playing the drums on occasion and spending time with my family.
+        </p>
+        <div class="flex flex-wrap justify-end w-full">
+          <a href="#portfolio" class="w-40 text-xl font-semibold text-right text-sky-900 hover:text-sky-800">
+            View Portfolio <i class="fa-solid fa-circle-chevron-down"></i></a>
+        </div>
       </div>
   </div>
   </div>
 
   <!-- SKILL SECTION -->
-  <div class="card w-[1200px] h-20 mx-auto p-4 justify-center content-end">
-    <div class="flex flex-wrap justify-center content-center p-1 w-3/12 font-body font-semibold text-xl text-slate-600">
-      I'm proficient in...
-    </div>
+  <div id="skills" class="card w-[1200px] h-20 mx-auto mb-14 p-4 justify-center content-between">
+    <!-- <div class="flex flex-wrap justify-center content-center p-1 w-3/12 font-body font-bold text-xl text-slate-500">
+      My Skills
+    </div> -->
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
       <img src="/assets/html5.svg" alt="HTML" class="w-12 h-12">
     </div>
@@ -66,27 +81,27 @@
       <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-12">
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/vscode.svg" alt="VS Code" class="w-12 h-12">
-    </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/github.svg" alt="GitHub" class="w-12 h-12">
+      <img src="/assets/npm.svg" alt="NPM" class="w-12 h-12">
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
       <img src="/assets/git.svg" alt="Git" class="w-12 h-12">
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/npm.svg" alt="NPM" class="w-12 h-12">
+      <img src="/assets/github.svg" alt="GitHub" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/assets/vscode.svg" alt="VS Code" class="w-12 h-12">
     </div>
   </div>
 
   <!-- USE A LOOP TO GENERATE CARDS BASED ON FILES WHICH EXIST IN /projects FOLDER -->
-  <div id="portfolio-container" class="flex flex-row w-[1200px] justify-between mx-auto my-10">
+  <div id="portfolio" class="flex flex-row w-[1200px] justify-between mx-auto pt-[100px] mt-[-100px]">
     <div id="card-item" class="card">
       <div id="item-preview" class="flex w-full">
         <img src="https://plus.unsplash.com/premium_photo-1673254850588-a8d03439ce3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="rounded-xl">
       </div>
       <div id="item-title" class="flex flex-row w-full justify-center content-center px-2 pt-2">
-        <div class="flex flex-wrap justify-start content-center w-7/12 text-slate-700 font-bold text-lg">Project Title</div>
+        <div class="flex flex-wrap justify-start content-center w-7/12 text-slate-600 font-bold text-lg">Project Title</div>
         <div class="flex justify-end w-5/12">
           <ul class="flex flex-wrap w-full justify-end content-center">
             <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
@@ -102,11 +117,46 @@
         </div>
       </div>
       <div id="item-content" class="flex flex-row w-full justify-start content-center px-2 pt-2">
-        <div>Content</div>
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.</div>
       </div>
       <div id="item-btn" class="flex flex-row w-full justify-center content-center px-2 pt-6">
-        <button class="w-full bg-sky-950 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.03rem] font-semibold">View Project</button>
+        <button class="w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.05rem] font-semibold">View Project</button>
       </div>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div id="contact" class="card w-[1200px] mx-auto mt-14 p-10">
+    <div class="flex mx-auto">
+      <h3 class="font-body font-bold text-3xl text-slate-500 leading-tight">Contact Me</h3>
+    </div>
+    <div class="flex mx-auto w-9/12">
+      <p class="font-body text-xl text-center pt-2 pb-8">
+        If you would like to send me a message, please complete the form below and I'll get back to you shortly. I'm currently open to the following opportunities: full time jobs, remote positions, freelance projects.
+      </p>
+    </div>
+    <div class="flex flex-wrap mx-auto w-full justify-center content-center">
+      <form class="w-1/2">
+        <fieldset>
+          <div class="flex w-full justify-center">
+            <div class="flex flex-col w-1/2 m-2">
+              <label for="fname" class="font-semibold text-slate-600 pb-1">First Name</label>
+              <input type="text" id="fname" name="fname" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+            </div>
+            <div class="flex flex-col w-1/2 m-2">
+              <label for="email" class="font-semibold text-slate-600 pb-1">Email</label>
+              <input type="email" id="email" name="email" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+            </div>
+          </div>
+          <div class="flex flex-wrap flex-col m-2">
+            <label for="message" class="font-semibold text-slate-600 pb-1">Message</label>
+            <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
+          </div>
+          <div class="flex flex-wrap flex-col m-2">
+            <input type="submit" value="Send Message" class="primarybtn">
+          </div>
+        </fieldset>
+      </form>
     </div>
   </div>
 
@@ -115,7 +165,7 @@
     <div id="copyright" class="flex flex-wrap content-center w-8/12 p-2">Copyright © 2023 Daniel Birch. All rights reserved.</div>
     <div id="links" class="flex flex-wrap content-center p-2">
       <nav>
-        <a href="#" class="link">Privacy</a> |
+        <a href="/privacy.html" class="link">Privacy</a> |
         <a href="#" class="link">Changelog</a>
       </nav>
     </div>
