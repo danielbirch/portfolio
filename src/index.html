@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/dist/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Daniel Birch | Frontend Web Developer</title>
+</head>
+<body class="w-full bg-[#fff] font-body text-base subpixel-antialiased text-slate-700">
+
+  <header class="flex flex-row w-full mx-auto justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] dbshadow">
+    <div id="container" class="flex w-[1200px]">
+      <div class="flex flex-auto flex-wrap justify-center content-center w-2/12 p-3">
+        <img src="#" alt="Daniel Birch Logo" class="">
+      </div>
+      <div class="flex flex-auto flex-wrap justify-end content-center w-8/12 p-3 text-[1.03rem] font-semibold text-zinc-900">
+        <nav>
+          <a href="#" class="link md:mr-5">About Me</a>
+          <a href="#" class="link md:mr-5">Skills</a>
+          <a href="#" class="link md:mr-5">Explore Portfolio</a>
+          <a href="#" class="link">Resources</a>
+        </nav>
+      </div>
+      <div class="flex flex-auto flex-wrap md:justify-end content-center w-2/12 p-3">
+        <button class="px-4 py-2 bg-sky-950 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Contact Me</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT ME SECTION -->
+  <div id="about-container" class="flex flex-row w-full bg-gradient-to-t from-[#fff] to-sky-100">
+    <div id="about-inner" class="flex flex-row w-[1200px] mx-auto pt-[100px]">
+      <div id="about-image" class="flex flex-wrap justify-center content-center w-4/12 pl-10">
+        <img src="/src/assets/daniel-about.png" alt="Daniel Birch">
+      </div>
+      <div id="about-text" class="flex flex-wrap justify-end content-center w-8/12 pr-10">
+        <h1 class="font-sans font-semibold text-5xl text-right text-slate-600 leading-tight">Hey there 👋<br/>I'm Daniel Birch</h1>
+        <p class="font-body text-xl text-right py-6">Some other text goes here explaining how awesome I am and why someone should hire me to build amazing apps and websites for their clients.</p>
+        <a href="#portfolio-container" class="text-lg font-semibold">View Portfolio</a>
+      </div>
+  </div>
+  </div>
+
+  <!-- SKILL SECTION -->
+  <div class="card w-[1200px] h-20 mx-auto p-4 justify-center content-end">
+    <div class="flex flex-wrap justify-center content-center p-1 w-3/12 font-body font-semibold text-xl text-slate-600">
+      I'm proficient in...
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/html5.svg" alt="HTML" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/css3.svg" alt="CSS" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/javascript.svg" alt="JS" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/firebase.svg" alt="Firebase" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/vscode.svg" alt="VS Code" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/github.svg" alt="GitHub" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/git.svg" alt="Git" class="w-12 h-12">
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
+      <img src="/src/assets/npm.svg" alt="NPM" class="w-12 h-12">
+    </div>
+  </div>
+
+  <!-- USE A LOOP TO GENERATE CARDS BASED ON FILES WHICH EXIST IN /projects FOLDER -->
+  <div id="portfolio-container" class="flex flex-row w-[1200px] justify-between mx-auto my-10">
+    <div id="card-item" class="card">
+      <div id="item-preview" class="flex w-full">
+        <img src="https://plus.unsplash.com/premium_photo-1673254850588-a8d03439ce3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="rounded-xl">
+      </div>
+      <div id="item-title" class="flex flex-row w-full justify-center content-center px-2 pt-2">
+        <div class="flex flex-wrap justify-start content-center w-7/12 text-slate-700 font-bold text-lg">Project Title</div>
+        <div class="flex justify-end w-5/12">
+          <ul class="flex flex-wrap w-full justify-end content-center">
+            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+              <img src="/src/assets/html5.svg" alt="HTML">
+            </li>
+            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+              <img src="/src/assets/css3.svg" alt="CSS">
+            </li>
+            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+              <img src="/src/assets/javascript.svg" alt="JS">
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div id="item-content" class="flex flex-row w-full justify-start content-center px-2 pt-2">
+        <div>Content</div>
+      </div>
+      <div id="item-btn" class="flex flex-row w-full justify-center content-center px-2 pt-6">
+        <button class="w-full bg-sky-950 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.03rem] font-semibold">View Project</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="flex flex-row w-[1200px] justify-between mx-auto py-5 mt-20 text-md font-semibold">
+    <div id="copyright" class="flex flex-wrap content-center w-8/12 p-2">Copyright © 2023 Daniel Birch. All rights reserved.</div>
+    <div id="links" class="flex flex-wrap content-center p-2">
+      <nav>
+        <a href="#" class="link">Privacy</a> |
+        <a href="#" class="link">Changelog</a>
+      </nav>
+    </div>
+    <div id="netlify" class="flex flex-wrap content-center p-2">
+      <a href="https://app.netlify.com/sites/incremental-counter-dmb/deploys">
+        <img src="https://api.netlify.com/api/v1/badges/73689331-770c-43bf-b593-987954a33516/deploy-status" alt="Netlify Status">
+      </a>
+    </div>
+  </footer>
+  
+  <script src="/src/app.js" defer></script>
+
+</body>
+</html>

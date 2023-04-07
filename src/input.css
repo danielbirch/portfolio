@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    width: 33.33%;
+    min-width: 16.5rem;
+    padding: 1rem;
+    color: rgb(84, 90, 97, 1);
+    background-color: #fff;
+    border: 1px solid rgb(233, 235, 237, 1);
+    border-radius: 0.7rem;
+    box-shadow: 0 1px .625rem 0 hsla(210, 7%, 22%, .06), 0 .125rem .25rem 0 hsla(210, 7%, 22%, .08);
+  }
+  .dbshadow {
+    box-shadow: 0 1px .625rem 0 hsla(210, 7%, 22%, .06), 0 .125rem .25rem 0 hsla(210, 7%, 22%, .08);
+  }
+  .link {
+    text-decoration: none;
+    position: relative;
+  }
+  .link::before {
+    content: '';
+    background-color: #bae6fd;
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 100%;
+    height: 3px;
+    z-index: -1;
+    transition: all .3s ease-in-out;
+  }
+  .link:hover::before {
+    bottom: -1px;
+    height: 100%;
+  }
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 800;
+  src: url(/src/fonts/Pacaembu-Ultra-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 700;
+  src: url(/src/fonts/Pacaembu-Black-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 600;
+  src: url(/src/fonts/Pacaembu-Bold-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/src/fonts/Pacaembu-Regular-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 300;
+  src: url(/src/fonts/Pacaembu-Medium-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 200;
+  src: url(/src/fonts/Pacaembu-Light-Trial.woff);
+}
+
+@font-face {
+  font-family: 'Pacaembu';
+  font-style: normal;
+  font-weight: 100;
+  src: url(/src/fonts/Pacaembu-Thin-Trial.woff);
+}
