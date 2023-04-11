@@ -46,6 +46,9 @@
   .hidden {
     display: none !important;
   }
+  #tooltip {
+    @apply bg-slate-700 text-slate-50 py-1 px-2 rounded-md relative;
+  }
 }
 
 @font-face {

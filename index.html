@@ -1,3 +1,4 @@
+<!-- npx tailwindcss -i ./input.css -o ./dist/output.css --watch -->
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -10,13 +11,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
   <title>Daniel Birch | Frontend Web Developer</title>
 </head>
 <body class="w-full bg-[#fff] dark:bg-[#000] font-body text-base subpixel-antialiased text-slate-600">
 
-  <header class="flex flex-row w-full mx-auto h-[70px] justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] dbshadow">
+  <header class="flex flex-row w-full mx-auto h-[70px] justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] z-10 dbshadow">
     <div id="container" class="flex w-[1200px]">
-      <div class="flex flex-auto flex-wrap justify-center content-center w-3/12 p-3">
+      <div class="flex flex-auto flex-wrap justify-start content-center w-3/12 p-3">
         <a href="https://danielbirch.dev"><img src="/assets/dbdev-logo.svg" alt="Daniel Birch Logo" class="w-56 h-auto"></a>
       </div>
       <div class="flex flex-auto flex-wrap justify-end content-center w-6/12 p-3 text-[1.03rem] font-semibold text-slate-600">
@@ -62,35 +64,41 @@
 
   <!-- SKILL SECTION -->
   <div id="skills" class="card w-[1200px] h-20 mx-auto mb-14 p-4 justify-center content-between">
-    <!-- <div class="flex flex-wrap justify-center content-center p-1 w-3/12 font-body font-bold text-xl text-slate-500">
-      My Skills
-    </div> -->
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/html5.svg" alt="HTML" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/html5.svg" alt="HTML" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">HTML5</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/css3.svg" alt="CSS" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/css3.svg" alt="CSS" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">CSS3</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/javascript.svg" alt="JS" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/javascript.svg" alt="JS" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">JavaScript</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/npm.svg" alt="NPM" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/npm.svg" alt="NPM" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">NPM</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/git.svg" alt="Git" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/git.svg" alt="Git" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Git</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/github.svg" alt="GitHub" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/github.svg" alt="GitHub" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">GitHub</div>
     </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12">
-      <img src="/assets/vscode.svg" alt="VS Code" class="w-12 h-12">
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[46px]">
+      <img src="/assets/vscode.svg" alt="VS Code" class="w-12 h-12 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">VS Code</div>
     </div>
   </div>
 
