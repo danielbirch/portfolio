@@ -83,7 +83,7 @@ skills.forEach((skill) => {
 // Dynamically create and insert icons <li> for project stack based upon the project file
 
 // DYNAMICALLY GENERATE YEAR FOR FOOTER
-document.getElementById('year').innerText = new Date().getFullYear() + "\u00A0";
+document.getElementById('year').innerText = "\u00A0" + new Date().getFullYear() + "\u00A0";
 
 // LOAD CONTENT FROM README.MD & SHOW ON CHANGELOG PAGE
 
