@@ -84,12 +84,12 @@ window.onload = function () {
     // Generate five digit number for contact_number variable
     this.contact_number.value = Math.random() * 100000 | 0;
     // Recaptcha
-    // var token = grecaptcha.getResponse();
+    var token = grecaptcha.getResponse();
     var params = {
       "user_name": userName,
       "user_email": userEmail,
-      "message": message
-      // "g-recaptcha-response": token
+      "message": message,
+      "g-recaptcha-response": token
     }
     // Send and error handling
     emailjs.send('contact_service', 'contact_form', params)
