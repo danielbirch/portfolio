@@ -16,6 +16,13 @@
   <script type="text/javascript">
     (function() {emailjs.init('_2pCU9m_2a6DSJeRj');}) ();
   </script>
+  <script type="text/javascript">
+    var onloadCallback = function() {
+      grecaptcha.render('g-recaptcha', {
+        'sitekey' : '6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU'
+      });
+    };
+  </script>
   <title>Daniel Birch | Frontend Web Developer</title>
 </head>
 <body class="w-full bg-[#fff] dark:bg-[#000] font-body text-base subpixel-antialiased text-slate-600">
@@ -170,14 +177,16 @@
             <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
           </div>
           <div class="flex flex-wrap flex-col m-2">
-            <div class="g-recaptcha" data-sitekey="6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU"></div>
-            <input type="hidden" name="g-recaptcha-response" value="">
+            <div id="g-recaptcha"></div>
             <input type="submit" value="Send Message" class="primarybtn">
           </div>
         </fieldset>
+        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
       </form>
     </div>
   </div>
+
+
 
   <!-- FOOTER -->
   <footer class="flex flex-row w-[1200px] justify-between mx-auto py-5 mt-20 text-md font-semibold">
