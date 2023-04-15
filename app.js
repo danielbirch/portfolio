@@ -71,11 +71,29 @@ skills.forEach((skill) => {
   });
 });
 
+// CONTACT FORM POWERED BY EMAILJS
+// Add animated ... to send button after click, once sent, button turns green and message says "Message sent!"
+// Show error message on error event below button, use hidden to toggle visibility
+window.onload = function () {
+  document.getElementById('contact-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    // Generate five digit number for contact_number variable
+    this.contact_number.value = Math.random() * 100000 | 0;
+    // Send and error handling
+    emailjs.sendForm('contact_service', 'contact_form', this)
+      .then(function () {
+        console.log('Success');
+        const inputs = document.querySelectorAll('#user_name, #user_email, #message');
+        inputs.forEach(input => {
+          input.value = '';
+        });
+      }, function (error) {
+        console.log('Failed', error);
+      });
+  });
+}
 
 
-
-// CONTACT FORM INTEGRATE WITH EMAILJS FOR SENDING EMAILS (https://www.emailjs.com/)
-// Validation (fields empty, is email, spam protection?)
 
 // PORTFOLIO GRID GENERATION BASED ON FILES IN /PROJECTS FOLDER
 // Generate portfolio cards based on the number of portfolio files in the /projects folder

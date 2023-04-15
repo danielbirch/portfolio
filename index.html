@@ -12,6 +12,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {emailjs.init('_2pCU9m_2a6DSJeRj');}) ();
+  </script>
   <title>Daniel Birch | Frontend Web Developer</title>
 </head>
 <body class="w-full bg-[#fff] dark:bg-[#000] font-body text-base subpixel-antialiased text-slate-600">
@@ -81,12 +85,12 @@
       <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Vue.js</div>
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
-      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
-      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
-    </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
       <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-10 absolute top-0 left-auto">
       <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
+      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
       <img src="/assets/npm.svg" alt="NPM" class="w-12 h-10 absolute top-0 left-auto">
@@ -148,16 +152,17 @@
       </p>
     </div>
     <div class="flex flex-wrap mx-auto w-full justify-center content-center">
-      <form class="w-1/2">
+      <form id="contact-form" class="w-1/2">
         <fieldset>
           <div class="flex w-full justify-center">
             <div class="flex flex-col w-1/2 m-2">
+              <input type="hidden" name="contact_number">
               <label for="fname" class="font-semibold text-slate-600 pb-1">First Name</label>
-              <input type="text" id="fname" name="fname" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+              <input type="text" id="user_name" name="user_name" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
             </div>
             <div class="flex flex-col w-1/2 m-2">
               <label for="email" class="font-semibold text-slate-600 pb-1">Email</label>
-              <input type="email" id="email" name="email" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+              <input type="email" id="user_email" name="user_email" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
             </div>
           </div>
           <div class="flex flex-wrap flex-col m-2">
@@ -165,6 +170,7 @@
             <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
           </div>
           <div class="flex flex-wrap flex-col m-2">
+            <div class="g-recaptcha" data-sitekey="6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU"></div>
             <input type="submit" value="Send Message" class="primarybtn">
           </div>
         </fieldset>
