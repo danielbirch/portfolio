@@ -81,7 +81,7 @@ window.onload = function () {
     // Generate five digit number for contact_number variable
     this.contact_number.value = Math.random() * 100000 | 0;
     // // Recaptcha
-    var formData = new formData(this);
+    var formData = new FormData(this);
     var token = grecaptcha.getResponse();
     var params = {
       "g-recaptcha-response": token,
