@@ -74,25 +74,19 @@ skills.forEach((skill) => {
 // CONTACT FORM POWERED BY EMAILJS
 // Add animated ... to send button after click, once sent, button turns green and message says "Message sent!"
 // Show error message on error event below button, use hidden to toggle visibility
-
+// Reload form or another way to reset recaptcha back to normal after submit without page refresh
 window.onload = function () {
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
     // Generate five digit number for contact_number variable
     this.contact_number.value = Math.random() * 100000 | 0;
-    // // Recaptcha
-    var formData = new FormData(this);
+    // // Grab recaptcha response
     var token = grecaptcha.getResponse();
-    var params = {
-      "g-recaptcha-response": token,
-      "user_name": formData.get("user_name"),
-      "user_email": formData.get("user_email"),
-      "message": formData.get("message")
-    }
     // Send and error handling
-    emailjs.sendForm('contact_service', 'contact_form', this, params)
+    emailjs.sendForm('contact_service', 'contact_form', this, '_2pCU9m_2a6DSJeRj', { 'g-recaptcha-response': token })
       .then(function () {
         console.log('Success');
+        document.getElementById('g-recaptcha').classList.add('hidden');
         const inputs = document.querySelectorAll('#user_name, #user_email, #message');
         inputs.forEach(input => {
           input.value = '';

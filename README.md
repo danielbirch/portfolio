@@ -4,4 +4,6 @@ My Frontend Web Developer portfolio to showcase my skills and projects.
 
 ### Adding Google Recaptcha
 
-Using the automatic method to render the widget was not working, so I then tried explicitly rendering the widget. Adding localhost to Google Recaptcha is still not allowing me to view the widget when in development, which means I need to push commits to check results. Not ideal at all, but my portfolio isn't a high traffic finished product.
+Getting Google Recaptcha to work has been a pain, but it's working now. There isn't any complete documentation online for integrating EmailJs and Google Recaptcha, only partial information and code snippets. The following is what worked for me:
+
+I use the EmailJS public key in the sendForm() method, instead of adding the init script within the html file. I also passed the recaptcha response object into the sendForm() method and used 'this' to pass the form field values.

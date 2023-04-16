@@ -14,9 +14,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
-    (function() {emailjs.init('_2pCU9m_2a6DSJeRj');}) ();
-  </script>
-  <script type="text/javascript">
     var onloadCallback = function() {
       grecaptcha.render('g-recaptcha', {
         'sitekey' : '6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU'
@@ -177,7 +174,7 @@
             <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
           </div>
           <div class="flex flex-wrap flex-col m-2">
-            <div id="g-recaptcha"></div>
+            <div id="g-recaptcha" class="mb-5"></div>
             <input type="submit" value="Send Message" class="primarybtn">
           </div>
         </fieldset>
