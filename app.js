@@ -74,25 +74,23 @@ skills.forEach((skill) => {
 // CONTACT FORM POWERED BY EMAILJS
 // Add animated ... to send button after click, once sent, button turns green and message says "Message sent!"
 // Show error message on error event below button, use hidden to toggle visibility
-var userName = document.getElementById('user_name').value;
-var userEmail = document.getElementById('user_email').value;
-var message = document.getElementById('message').value;
 
 window.onload = function () {
   document.getElementById('contact-form').addEventListener('submit', function (event) {
     event.preventDefault();
     // Generate five digit number for contact_number variable
     this.contact_number.value = Math.random() * 100000 | 0;
-    // Recaptcha
+    // // Recaptcha
+    var formData = new formData(this);
     var token = grecaptcha.getResponse();
     var params = {
-      "user_name": userName,
-      "user_email": userEmail,
-      "message": message,
-      "g-recaptcha-response": token
+      "g-recaptcha-response": token,
+      "user_name": formData.get("user_name"),
+      "user_email": formData.get("user_email"),
+      "message": formData.get("message")
     }
     // Send and error handling
-    emailjs.send('contact_service', 'contact_form', params)
+    emailjs.sendForm('contact_service', 'contact_form', params)
       .then(function () {
         console.log('Success');
         const inputs = document.querySelectorAll('#user_name, #user_email, #message');
