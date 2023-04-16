@@ -90,7 +90,7 @@ window.onload = function () {
       "message": formData.get("message")
     }
     // Send and error handling
-    emailjs.sendForm('contact_service', 'contact_form', params)
+    emailjs.sendForm('contact_service', 'contact_form', this, params)
       .then(function () {
         console.log('Success');
         const inputs = document.querySelectorAll('#user_name, #user_email, #message');
