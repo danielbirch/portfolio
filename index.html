@@ -49,18 +49,18 @@
 
   <!-- ABOUT ME SECTION -->
   <div id="about" class="flex flex-row w-full bg-gradient-to-t from-[#fff] to-sky-100">
-    <div id="about-inner" class="flex flex-row w-[1200px] mx-auto pt-[100px]">
+    <div id="about-inner" class="flex flex-row w-[1200px] mx-auto pt-[130px]">
       <div id="about-image" class="flex flex-wrap justify-center content-center w-4/12 pl-10">
         <img src="/assets/daniel-about.png" alt="Daniel Birch">
       </div>
-      <div id="about-text" class="flex flex-wrap flex-col justify-center content-center w-8/12 pl-16 pr-4">
+      <div id="about-text" class="flex flex-wrap flex-col justify-center content-center w-8/12 pl-16 pr-4 pb-16">
         <h1 class="font-sans font-semibold text-5xl text-right text-slate-500 leading-tight">Daniel Birch</h1>
         <h2 class="font-sans font-medium text-3xl text-right text-slate-400 leading-tight">Frontend Web Developer</h2>
         <p class="font-body text-xl text-right py-6">
-          Programming is an opportunity to solve a problem, to build something interesting and useful. I get a lot of satisfaction building projects from start to finish, including a desiging a wireframe prior to building the project. As part of my continued professional development, I continue to learn new frameworks, programming languages and tools.
+          Programming is an opportunity to solve a problem, to build something practical and enjoyable to use. I get a lot of satisfaction building projects from start to finish, including desiging a wireframe prior to coding the project. I'm excellent at problem solving and pride myself on always finding a solution. As part of my professional development, I continue to learn new frameworks, programming languages and tools. 
         </p>
         <p class="font-body text-xl text-right py-6">
-          On a personal note, I enjoy going to the gym, playing the drums on occasion and spending time with my family.
+          On a personal note, I enjoy going to the gym, watching movies, playing the drums on occasion and spending time with my family.
         </p>
         <div class="flex flex-wrap justify-end w-full">
           <a href="#portfolio" class="w-40 text-xl font-semibold text-right text-sky-900 hover:text-sky-800">
@@ -89,12 +89,12 @@
       <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Vue.js</div>
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
-      <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-10 absolute top-0 left-auto">
-      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
-    </div>
-    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
       <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
       <div id ="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
+    </div>
+    <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
+      <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-10 absolute top-0 left-auto">
+      <div id ="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
     </div>
     <div id="skill-item" class="flex flex-wrap justify-center content-center p-1 w-1/12 cursor-crosshair relative h-[41px]">
       <img src="/assets/npm.svg" alt="NPM" class="w-12 h-10 absolute top-0 left-auto">
@@ -114,39 +114,12 @@
     </div>
   </div>
 
-  <!-- USE A LOOP TO GENERATE CARDS BASED ON FILES WHICH EXIST IN /projects FOLDER -->
-  <div id="portfolio" class="flex flex-row w-[1200px] justify-between mx-auto pt-[100px] mt-[-100px]">
-    <div id="card-item" class="card">
-      <div id="item-preview" class="flex w-full">
-        <img src="https://plus.unsplash.com/premium_photo-1673254850588-a8d03439ce3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" class="rounded-xl">
-      </div>
-      <div id="item-title" class="flex flex-row w-full justify-center content-center px-2 pt-2">
-        <div class="flex flex-wrap justify-start content-center w-7/12 text-slate-600 font-bold text-lg">Project Title</div>
-        <div class="flex justify-end w-5/12">
-          <ul class="flex flex-wrap w-full justify-end content-center">
-            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
-              <img src="/assets/html5.svg" alt="HTML">
-            </li>
-            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
-              <img src="/assets/css3.svg" alt="CSS">
-            </li>
-            <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
-              <img src="/assets/javascript.svg" alt="JS">
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div id="item-content" class="flex flex-row w-full justify-start content-center px-2 pt-2">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.</div>
-      </div>
-      <div id="item-btn" class="flex flex-row w-full justify-center content-center px-2 pt-6">
-        <button class="w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.05rem] font-semibold">View Project</button>
-      </div>
-    </div>
+<!-- PORTFOLIO -->
+  <div id="portfolio" class="flex flex-row w-[1200px] justify-between gap-8 mx-auto pt-[130px] mt-[-100px] pb-[20px]">
   </div>
 
-  <!-- CONTACT -->
-  <div id="contact" class="card w-[1200px] mx-auto mt-14 p-10">
+  <!-- CONTACT - Fix scroll to by wrapping #contact in a div and using same technique as on #portfolio -->
+  <div id="contact" class="card w-[1200px] mx-auto mt-16 p-10 py-24">
     <div class="flex mx-auto">
       <h3 class="font-body font-bold text-3xl text-slate-500 leading-tight">Contact Me</h3>
     </div>
@@ -191,7 +164,7 @@
     <div id="links" class="flex flex-wrap content-center p-2">
       <nav>
         <a href="/privacy.html" class="link">Privacy</a> |
-        <a href="#" class="link">Changelog</a>
+        <a href="/changelog.html" class="link">Changelog</a>
       </nav>
     </div>
     <div id="netlify" class="flex flex-wrap content-center p-2">
@@ -205,3 +178,37 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+<!-- <div id="card-item" class="card">
+  <div id="main-image" class="flex w-full">
+    <img src="#" class="rounded-xl">
+  </div>
+  <div class="flex flex-row w-full justify-center content-center px-2 pt-2">
+    <div id="project-name" class="flex flex-wrap justify-start content-center w-7/12 text-slate-600 font-bold text-lg"></div>
+    <div class="flex justify-end w-5/12">
+      <ul class="flex flex-wrap w-full justify-end content-center">
+        <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+          <img id="html" src="#" alt="HTML">
+        </li>
+        <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+          <img id="css" src="#" alt="CSS">
+        </li>
+        <li class="flex flex-wrap justify-center content-center px-1 w-9 h-9">
+          <img id="js" src="#" alt="JS">
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="excerpt" class="flex flex-row w-full justify-start content-center px-2 pt-2">
+    <div></div>
+  </div>
+  <div id="item-btn" class="flex flex-row w-full justify-center content-center px-2 pt-6">
+    <button class="w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.05rem] font-semibold">View Project</button>
+  </div>
+</div> -->

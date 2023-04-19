@@ -97,15 +97,139 @@ window.onload = function () {
   });
 }
 
+// PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
+window.onload = function () {
+  // Fetch the JSON file
+  fetch('./projects.json')
+    .then(response => response.json())
+    .then(data => {
+      const projectCount = data.projects.length;
+      // Iterate through all objects in JSON
+      for(i = 0; i < projectCount; i++) {
+        const projectData = data.projects[i];
+        renderCards(projectData);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+    });
+}
+
+function renderCards(dataRef) {
+  // Render card on page and set ID's
+  const portfolioSection = document.getElementById('portfolio');
+  const newProject = document.createElement('div');
+  newProject.setAttribute('id', 'card-item');
+  newProject.setAttribute('class', 'card');
+  portfolioSection.appendChild(newProject);
+
+  // Main image
+  const mainImage = document.createElement('div');
+  mainImage.setAttribute('id', 'main-image');
+  mainImage.setAttribute('class', 'flex w-full');
+  newProject.appendChild(mainImage);
+  // IMG
+  const mainImageSrc = document.createElement('img');
+  mainImageSrc.setAttribute('src', dataRef.mainImage);
+  mainImageSrc.setAttribute('class', 'rounded-xl');
+  mainImage.appendChild(mainImageSrc);
+
+  // Container 1 DIV
+  const container1 = document.createElement('div');
+  container1.setAttribute('id', 'container-1');
+  container1.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-2');
+  newProject.appendChild(container1);
+
+  // Project name
+  const projectNameList = "flex flex-wrap justify-start content-center w-6/12 text-slate-600 font-bold text-lg";
+  const projectName = document.createElement('div');
+  projectName.setAttribute('id', 'project-name');
+  projectName.setAttribute('class', projectNameList);
+  projectName.textContent = dataRef.projectName;
+  container1.appendChild(projectName);
+
+  // Container 2 DIV
+  const container2 = document.createElement('div');
+  container2.setAttribute('id', 'container-2');
+  container2.setAttribute('class', 'flex justify-end w-6/12');
+  container1.appendChild(container2);
+
+  // UL
+  const techUsed = document.createElement('ul');
+  techUsed.setAttribute('class', 'flex flex-wrap w-full justify-end content-center');
+  container2.appendChild(techUsed);
+
+  // IMG
+  const techObject = {
+    "html": {
+      "data": dataRef.html,
+      "src": "./assets/html5.svg"
+    },
+    "css": {
+      "data": dataRef.css,
+      "src": "./assets/css3.svg"
+    },
+    "js": {
+      "data": dataRef.js,
+      "src": "./assets/javascript.svg"
+    },
+    "vue": {
+      "data": dataRef.vue,
+      "src": "./assets/vuejs.svg"
+    },
+    "tailwind": {
+      "data": dataRef.tailwind,
+      "src": "./assets/tailwind-css.svg"
+    },
+    "firebase": {
+      "data": dataRef.firebase,
+      "src": "./assets/firebase.svg"
+    }
+  };
+
+  // Iterate over techObject, create new li & show icons if is true
+  Object.keys(techObject).forEach(key => {
+    if (techObject[key].data) {
+      // Create LI
+      const techUsedLi = document.createElement('li');
+      techUsedLi.setAttribute('class', 'flex flex-wrap justify-center content-center px-1 w-6 h-6');
+      techUsed.appendChild(techUsedLi);
+      // Create IMG 
+      const techImage = document.createElement('img');
+      techImage.setAttribute('id', 'tech-used');
+      techImage.setAttribute('src', '');
+      techImage.setAttribute('src', techObject[key].src);
+      techImage.setAttribute('alt', techObject[key].data);
+      techUsedLi.appendChild(techImage);
+    }
+  });
+  
+  // Excerpt
+  const excerpt = document.createElement('div');
+  excerpt.setAttribute('id', 'excerpt');
+  excerpt.setAttribute('class', 'flex flex-row w-full justify-start content-center px-2 pt-2');
+  excerpt.textContent = dataRef.excerpt;
+  newProject.appendChild(excerpt);
+  
+  // Button Div
+  const viewButtonBox = document.createElement('div');
+  viewButtonBox.setAttribute('id', 'view-button');
+  viewButtonBox.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-6');
+  newProject.appendChild(viewButtonBox);
+  // Button
+  const viewButton = document.createElement('button');
+  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.05rem] font-semibold');
+  viewButton.textContent = "View Project";
+  viewButtonBox.appendChild(viewButton);
+}
 
 
-// PORTFOLIO GRID GENERATION BASED ON FILES IN /PROJECTS FOLDER
-// Generate portfolio cards based on the number of portfolio files in the /projects folder
-// Use the FileReader API: https://developer.mozilla.org/en-US/docs/Web/API/FileReader
-// Dynamically create and insert icons <li> for project stack based upon the project file
 
 // DYNAMICALLY GENERATE YEAR FOR FOOTER
 document.getElementById('year').innerText = "\u00A0" + new Date().getFullYear() + "\u00A0";
 
 // LOAD CONTENT FROM README.MD & SHOW ON CHANGELOG PAGE
+// Need to setup Webpack first, then use remark-loader (https://www.npmjs.com/package/remark-loader?activeTab=readme)
+// import md from "README.md";
 
+// console.log(md);

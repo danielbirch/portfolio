@@ -1,0 +1,47 @@
+{"projects":[
+  {
+    "projectName": "VIPT SaaS",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "link": "#",
+    "mainImage": "https://images.unsplash.com/photo-1612367980327-7454a7276aa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    "html": true,
+    "css": true,
+    "js": true,
+    "vue": true,
+    "tailwind": true,
+    "firebase": true
+  },
+  {
+    "projectName": "Tasti eCommerce",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "link": "#",
+    "mainImage": "https://images.unsplash.com/photo-1612367980327-7454a7276aa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    "html": true,
+    "css": true,
+    "js": true,
+    "vue": true,
+    "tailwind": true,
+    "firebase": true
+  },
+  {
+    "projectName": "JS Flash Cards",
+    "excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "descriptionP3": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
+    "link": "#",
+    "mainImage": "https://images.unsplash.com/photo-1612367980327-7454a7276aa7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    "html": true,
+    "css": true,
+    "js": true,
+    "vue": true,
+    "tailwind": false,
+    "firebase": true
+  }
+]}
