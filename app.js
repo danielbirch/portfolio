@@ -137,7 +137,7 @@ function renderCards(dataRef) {
   // Container 1 DIV
   const container1 = document.createElement('div');
   container1.setAttribute('id', 'container-1');
-  container1.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-2');
+  container1.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-4 pb-3');
   newProject.appendChild(container1);
 
   // Project name
@@ -192,7 +192,7 @@ function renderCards(dataRef) {
     if (techObject[key].data) {
       // Create LI
       const techUsedLi = document.createElement('li');
-      techUsedLi.setAttribute('class', 'flex flex-wrap justify-center content-center px-1 w-6 h-6');
+      techUsedLi.setAttribute('class', 'flex flex-nowrap justify-center content-center px-1 w-fit h-4');
       techUsed.appendChild(techUsedLi);
       // Create IMG 
       const techImage = document.createElement('img');

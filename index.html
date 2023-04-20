@@ -115,44 +115,46 @@
   </div>
 
 <!-- PORTFOLIO -->
-  <div id="portfolio" class="flex flex-row w-[1200px] justify-between gap-8 mx-auto pt-[130px] mt-[-100px] pb-[20px]">
+  <div id="portfolio" class="flex flex-row w-[1200px] justify-between gap-8 mx-auto pt-[115px] mt-[-100px] mb-[-20px]">
   </div>
 
   <!-- CONTACT - Fix scroll to by wrapping #contact in a div and using same technique as on #portfolio -->
-  <div id="contact" class="card w-[1200px] mx-auto mt-16 p-10 py-24">
-    <div class="flex mx-auto">
-      <h3 class="font-body font-bold text-3xl text-slate-500 leading-tight">Contact Me</h3>
-    </div>
-    <div class="flex mx-auto w-9/12">
-      <p class="font-body text-xl text-center pt-2 pb-8">
-        If you would like to send me a message, please complete the form below and I'll get back to you shortly. I'm currently open to the following opportunities: full time jobs, remote positions, freelance projects.
-      </p>
-    </div>
-    <div class="flex flex-wrap mx-auto w-full justify-center content-center">
-      <form id="contact-form" class="w-1/2">
-        <fieldset>
-          <div class="flex w-full justify-center">
-            <div class="flex flex-col w-1/2 m-2">
-              <input type="hidden" name="contact_number">
-              <label for="fname" class="font-semibold text-slate-600 pb-1">First Name</label>
-              <input type="text" id="user_name" name="user_name" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+  <div id="contact" class="pt-7">
+    <div class="card w-[1200px] mx-auto mt-16 p-10 py-16">
+      <div class="flex mx-auto">
+        <h3 class="font-body font-bold text-3xl text-slate-500 leading-tight">Contact Me</h3>
+      </div>
+      <div class="flex mx-auto w-9/12">
+        <p class="font-body text-xl text-center pt-2 pb-8">
+          If you would like to send me a message, please complete the form below and I'll get back to you shortly. I'm currently open to the following opportunities: full time jobs, remote positions, freelance projects.
+        </p>
+      </div>
+      <div class="flex flex-wrap mx-auto w-full justify-center content-center">
+        <form id="contact-form" class="w-1/2">
+          <fieldset>
+            <div class="flex w-full justify-center">
+              <div class="flex flex-col w-1/2 m-2">
+                <input type="hidden" name="contact_number">
+                <label for="fname" class="font-semibold text-slate-600 pb-1">First Name</label>
+                <input type="text" id="user_name" name="user_name" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+              </div>
+              <div class="flex flex-col w-1/2 m-2">
+                <label for="email" class="font-semibold text-slate-600 pb-1">Email</label>
+                <input type="email" id="user_email" name="user_email" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+              </div>
             </div>
-            <div class="flex flex-col w-1/2 m-2">
-              <label for="email" class="font-semibold text-slate-600 pb-1">Email</label>
-              <input type="email" id="user_email" name="user_email" class="bg-slate-100 rounded-md text-lg px-3 py-3" required>
+            <div class="flex flex-wrap flex-col m-2">
+              <label for="message" class="font-semibold text-slate-600 pb-1">Message</label>
+              <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
             </div>
-          </div>
-          <div class="flex flex-wrap flex-col m-2">
-            <label for="message" class="font-semibold text-slate-600 pb-1">Message</label>
-            <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3" required></textarea>
-          </div>
-          <div class="flex flex-wrap flex-col m-2">
-            <div id="g-recaptcha" class="mb-5"></div>
-            <input type="submit" value="Send Message" class="primarybtn">
-          </div>
-        </fieldset>
-        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
-      </form>
+            <div class="flex flex-wrap flex-col m-2">
+              <div id="g-recaptcha" class="mb-5"></div>
+              <input type="submit" value="Send Message" class="primarybtn">
+            </div>
+          </fieldset>
+          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+        </form>
+      </div>
     </div>
   </div>
 
