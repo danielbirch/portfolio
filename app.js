@@ -192,7 +192,7 @@ function renderCards(dataRef) {
     if (techObject[key].data) {
       // Create LI
       const techUsedLi = document.createElement('li');
-      techUsedLi.setAttribute('class', 'flex flex-nowrap justify-center content-center px-1 w-fit h-4');
+      techUsedLi.setAttribute('class', 'flex flex-nowrap justify-center content-center px-1 w-6 h-4');
       techUsed.appendChild(techUsedLi);
       // Create IMG 
       const techImage = document.createElement('img');
@@ -217,10 +217,21 @@ function renderCards(dataRef) {
   viewButtonBox.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-6');
   newProject.appendChild(viewButtonBox);
   // Button
-  const viewButton = document.createElement('button');
-  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 rounded-md text-[1.05rem] font-semibold');
+  const viewButton = document.createElement('a');
+  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold');
+  viewButton.setAttribute('href', dataRef.link);
+  viewButton.setAttribute('target', '_blank');
   viewButton.textContent = "View Project";
   viewButtonBox.appendChild(viewButton);
+
+    // ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
+  if(dataRef.development === true) {
+    mainImage.classList.add('relative');
+    const badge = document.createElement('div');
+    badge.textContent = "Coming Soon";
+    badge.setAttribute('class', 'absolute right-[10px] bottom-[10px] py-1 px-2 text-xs bg-[#00000095] text-slate-50 rounded-md');
+    mainImage.appendChild(badge);
+  }
 }
 
 
