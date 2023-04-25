@@ -1,3 +1,6 @@
+// GLOBAL SCOPE
+
+
 // DARK MODE TOGGLE
 // Reference the IDs and store in a variable
 const dark = document.getElementById('dark');
@@ -106,8 +109,10 @@ window.onload = function () {
       const projectCount = data.projects.length;
       // Iterate through all objects in JSON
       for(i = 0; i < projectCount; i++) {
-        const projectData = data.projects[i];
+        let projectData = data.projects[i];
+        // let zData = data.projects[i];
         renderCards(projectData);
+        // openPortfolio(zData);
       }
     })
     .catch(error => {
@@ -120,7 +125,7 @@ function renderCards(dataRef) {
   const portfolioSection = document.getElementById('portfolio');
   const newProject = document.createElement('div');
   newProject.setAttribute('id', 'card-item');
-  newProject.setAttribute('class', 'card');
+  newProject.setAttribute('class', 'card max-w-[31%]');
   portfolioSection.appendChild(newProject);
 
   // Main image
@@ -217,10 +222,11 @@ function renderCards(dataRef) {
   viewButtonBox.setAttribute('class', 'flex flex-row w-full justify-center content-center px-2 pt-6');
   newProject.appendChild(viewButtonBox);
   // Button
-  const viewButton = document.createElement('a');
-  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold');
-  viewButton.setAttribute('href', dataRef.link);
-  viewButton.setAttribute('target', '_blank');
+  let viewButton = document.createElement('a');
+  viewButton.setAttribute('id', 'view-button-btn');
+  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer');
+  // viewButton.setAttribute('href', dataRef.link);
+  // viewButton.setAttribute('target', '_blank');
   viewButton.textContent = "View Project";
   viewButtonBox.appendChild(viewButton);
 
@@ -233,6 +239,61 @@ function renderCards(dataRef) {
     mainImage.appendChild(badge);
   }
 }
+
+// OPEN PROJECT IN WINDOW ON BUTTON CLICK
+// Add event listener for button click
+
+
+// setTimeout(() => {
+//   const myVar = document.getElementById('view-button-btn');
+//   myVar.addEventListener('click', func);
+// }, 1000);
+
+// function func() {
+//   console.log('hey');
+// }
+
+document.body.addEventListener('load', function () {
+  const myVar = document.getElementById('view-button-btn');
+  console.log(myVar);
+  // myVar.addEventListener('click', func);
+
+  // function func() {
+  //   console.log('hey');
+  // }
+});
+
+
+// const myVar = document.querySelector('#about-image');
+// myVar.addEventListener('click', func);
+
+// function func() {
+//   console.log('hey');
+// }
+
+
+
+// function openPortfolio() {
+//   console.log('hey');
+// }
+// // When clicked, change p-window to visible & render data
+// function openPortfolio() {
+//   let pWindow = document.getElementById('p-window');
+//   function windowClose() {
+//     pWindow.classList.toggle('hidden');
+//   }
+//   windowClose();
+//   // Close button
+//   const closeWindow = document.createElement('a');
+//   closeWindow.setAttribute('class', 'flex absolute top-3 right-4 cursor-pointer font-bold text-sm text-red-400');
+//   closeWindow.textContent = "CLOSE";
+//   pWindow.appendChild(closeWindow);
+//   closeWindow.addEventListener('click', windowClose);
+//   // Project name
+//   const windowProjectName = document.createElement('div');
+//   windowProjectName.setAttribute('class', 'text-slate-700');
+//   pWindow.appendChild(windowProjectName);
+// }
 
 
 
