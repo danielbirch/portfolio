@@ -52,6 +52,9 @@
   #tooltip {
     @apply bg-slate-700 text-slate-50 py-1 px-2 rounded-md relative z-10;
   }
+  :focus-visible {
+    outline: -webkit-focus-ring-color solid 0px;
+  }
 }
 
 @font-face {
