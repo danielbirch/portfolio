@@ -6,11 +6,23 @@ mobileMenu.addEventListener('click', openMenu);
 
 function openMenu() {
   const menuToHide = document.getElementById('mobile-menu');
-  menuToHide.classList.toggle('hidden');
+  if (menuToHide.classList.contains('hidden')) {
+    menuToHide.classList.toggle('hidden');
+    gsap.fromTo(menuToHide, {top: -400, duration: 0.5, ease: "power1"}, {top: 0, duration: 0.5, ease: "power1"});
+  } else {
+    gsap.fromTo(menuToHide, { top: 0, duration: 0.5, ease: "power1" }, { top: -400, duration: 0.5, ease: "power1" });
+    setTimeout(() => {
+      menuToHide.classList.toggle('hidden');
+    }, 500);
+  }
 }
 
 // DARK MODE TOGGLE V2
 const toggleElements = document.querySelectorAll('.toggle-dark-mode');
+const dark = document.getElementById('dark');
+const light = document.getElementById('light');
+const darkMob = document.getElementById('darkmob');
+const lightMob = document.getElementById('lightmob');
 const htmlUpdate = document.querySelector('html');
 
 toggleElements.forEach(element => {
@@ -44,9 +56,11 @@ function loadMode(saveValue) {
   const getValue = localStorage.getItem('Dark Mode');
   if (getValue === 'true') {
     htmlUpdate.classList.add('dark');
-      if (dark.classList.contains('hidden')) {
+      if (dark.classList.contains('hidden') || darkMob.classList.contains('hidden')) {
         dark.classList.remove('hidden');
         light.classList.add('hidden');
+        darkMob.classList.remove('hidden');
+        lightMob.classList.add('hidden');
       }
   } else {
     htmlUpdate.classList.remove('dark');
