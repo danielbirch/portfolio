@@ -8,7 +8,7 @@ function openMenu() {
   const menuToHide = document.getElementById('mobile-menu');
   if (menuToHide.classList.contains('hidden')) {
     menuToHide.classList.toggle('hidden');
-    gsap.fromTo(menuToHide, {top: -400, duration: 0.5, ease: "power1"}, {top: 0, duration: 0.5, ease: "power1"});
+    gsap.fromTo(menuToHide, { top: -400, duration: 0.5, ease: "power1" }, { top: 0, duration: 0.5, ease: "power1" });
   } else {
     gsap.fromTo(menuToHide, { top: 0, duration: 0.5, ease: "power1" }, { top: -400, duration: 0.5, ease: "power1" });
     setTimeout(() => {
@@ -56,15 +56,15 @@ function loadMode(saveValue) {
   const getValue = localStorage.getItem('Dark Mode');
   if (getValue === 'true') {
     htmlUpdate.classList.add('dark');
-      if (dark.classList.contains('hidden') || darkMob.classList.contains('hidden')) {
-        dark.classList.remove('hidden');
-        light.classList.add('hidden');
-        darkMob.classList.remove('hidden');
-        lightMob.classList.add('hidden');
-      }
+    if (dark.classList.contains('hidden') || darkMob.classList.contains('hidden')) {
+      dark.classList.remove('hidden');
+      light.classList.add('hidden');
+      darkMob.classList.remove('hidden');
+      lightMob.classList.add('hidden');
+    }
   } else {
     htmlUpdate.classList.remove('dark');
-    }
+  }
 }
 
 // ADD TOOLTIPS TO SKILL ICONS ON HOVER
@@ -125,7 +125,7 @@ window.onload = function () {
   });
 }
 
-let projectData;
+let projectData = [];
 
 // PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
 window.onload = function () {
@@ -135,16 +135,18 @@ window.onload = function () {
     .then(data => {
       const projectCount = data.projects.length;
       // Iterate through all objects in JSON
-      for(i = 0; i < projectCount; i++) {
+      for (i = 0; i < projectCount; i++) {
         projectData = data.projects[i];
         renderCards(projectData);
+        openPortfolio(projectData);
       }
     })
     .catch(error => {
       console.error(error);
     });
-    // openPortfolio(projectData);
 }
+
+
 
 function renderCards(dataRef) {
   // Render card on page and set ID's
@@ -233,14 +235,14 @@ function renderCards(dataRef) {
       techUsedLi.appendChild(techImage);
     }
   });
-  
+
   // Excerpt
   const excerpt = document.createElement('div');
   excerpt.setAttribute('id', 'excerpt-' + dataRef.id);
   excerpt.setAttribute('class', 'flex flex-row w-full justify-start content-center px-2 pt-2');
   excerpt.textContent = dataRef.excerpt;
   newProject.appendChild(excerpt);
-  
+
   // Button Div
   const viewButtonBox = document.createElement('div');
   viewButtonBox.setAttribute('id', 'view-button-box-' + dataRef.id);
@@ -256,8 +258,8 @@ function renderCards(dataRef) {
   viewButton.textContent = "View Project";
   viewButtonBox.appendChild(viewButton);
 
-    // ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
-  if(dataRef.development === true) {
+  // ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
+  if (dataRef.development === true) {
     mainImage.classList.add('relative');
     const badge = document.createElement('div');
     badge.textContent = "Coming Soon";
@@ -266,37 +268,44 @@ function renderCards(dataRef) {
   }
 }
 
-console.log(projectData); // why is this undefined? It's in the global scope?
 
-// OPEN PROJECT IN WINDOW ON BUTTON CLICK
-// Add event listener for button click
+
+// OPEN PROJECT IN WINDOW ON BUTTON CLICK AND RENDER DETAILS
 setTimeout(() => {
   const viewPortfolioItem = document.getElementById('view-button-5');
-  viewPortfolioItem.addEventListener('click', openPortfolio); // why is this event not functioning?
+  viewPortfolioItem.addEventListener('click', openPortfolio);
 }, 1000);
 
-// When clicked, change p-window to visible & render data
-function openPortfolio() {
-  let pWindow = document.getElementById('p-window');
-  function windowClose() {
-    pWindow.classList.toggle('hidden');
-    console.log('I was clicked');
-  }
-  // Close button
-  const closeWindow = document.querySelector('.close');
+let pWindow = document.getElementById('p-window');
+const closeWindow = document.querySelector('.close');
+
+function openPortfolio(projectData) {
+  pWindow.classList.toggle('hidden');
   closeWindow.addEventListener('click', windowClose);
-  // Project name
-  // const windowProjectName = document.createElement('div');
-  // windowProjectName.setAttribute('class', 'text-slate-700');
-  // windowProjectName.textContent = projectDataRef.id;
-  // pWindow.appendChild(windowProjectName);
-  // console.log(projectDataRef[i]);
-  // if (projectData.id === 5) {
-  //   console.log('5', projectData);
-  // } else {
-  //   console.log('not 5');
+  console.log(projectData);
+  // if (projectData.id === 2) {
+  //   console.log('five')
   // }
 }
+
+function windowClose() {
+  pWindow.classList.toggle('hidden');
+  closeWindow.removeEventListener('click', windowClose);
+}
+// Project name
+// const windowProjectName = document.createElement('div');
+// windowProjectName.setAttribute('class', 'text-slate-700');
+// windowProjectName.textContent = projectDataRef.id;
+// pWindow.appendChild(windowProjectName);
+// console.log(projectDataRef[i]);
+// if (projectData.id === 5) {
+//   console.log('5', projectData);
+// } else {
+//   console.log('not 5');
+// }
+// }
+
+
 
 
 
