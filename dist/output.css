@@ -643,10 +643,6 @@ video {
   outline: -webkit-focus-ring-color solid 0px;
 }
 
-.visible {
-  visibility: visible;
-}
-
 .fixed {
   position: fixed;
 }
@@ -697,6 +693,18 @@ video {
 
 .top-\[48px\] {
   top: 48px;
+}
+
+.top-1 {
+  top: 0.25rem;
+}
+
+.top-5 {
+  top: 1.25rem;
+}
+
+.top-10 {
+  top: 2.5rem;
 }
 
 .z-10 {

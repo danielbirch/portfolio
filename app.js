@@ -136,9 +136,10 @@ window.onload = function () {
       const projectCount = data.projects.length;
       // Iterate through all objects in JSON
       for (i = 0; i < projectCount; i++) {
+        // projectData.push(data.projects[i]);
         projectData = data.projects[i];
+        // console.log(projectData);
         renderCards(projectData);
-        openPortfolio(projectData);
       }
     })
     .catch(error => {
@@ -251,8 +252,8 @@ function renderCards(dataRef) {
   // Button
   let viewButton = document.createElement('a');
   // const rand = Math.floor(Math.random() * 100);
-  viewButton.setAttribute('id', 'view-button-' + dataRef.id);
-  viewButton.setAttribute('class', 'w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer');
+  viewButton.setAttribute('data-id', dataRef.id);
+  viewButton.setAttribute('class', 'view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer');
   // viewButton.setAttribute('href', dataRef.link);
   // viewButton.setAttribute('target', '_blank');
   viewButton.textContent = "View Project";
@@ -270,11 +271,16 @@ function renderCards(dataRef) {
 
 
 
-// OPEN PROJECT IN WINDOW ON BUTTON CLICK AND RENDER DETAILS
+// OPEN PROJECT IN WINDOW ON BUTTON CLICK AND CLOSE BUTTON FUNCTIONALITY
 setTimeout(() => {
-  const viewPortfolioItem = document.getElementById('view-button-5');
+  const viewPortfolioItem = document.querySelector('.view-button');
   viewPortfolioItem.addEventListener('click', openPortfolio);
 }, 1000);
+
+// document.onload.addEventListener('DOMContentLoaded', function () {
+//   const viewPortfolioItem = document.getElementById('view-button-5');
+//   viewPortfolioItem.addEventListener('click', openPortfolio);
+// })
 
 let pWindow = document.getElementById('p-window');
 const closeWindow = document.querySelector('.close');
@@ -282,16 +288,33 @@ const closeWindow = document.querySelector('.close');
 function openPortfolio(projectData) {
   pWindow.classList.toggle('hidden');
   closeWindow.addEventListener('click', windowClose);
-  console.log(projectData);
-  // if (projectData.id === 2) {
-  //   console.log('five')
-  // }
+  // console.log(projectData);
 }
 
 function windowClose() {
   pWindow.classList.toggle('hidden');
   closeWindow.removeEventListener('click', windowClose);
 }
+
+// BUILD PROJECT DETAILS PAGE ON CLICK
+setTimeout((projectData) => {
+  const portfolioButtons = document.querySelectorAll('.view-button');
+  portfolioButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      // Get the ID of the clicked button
+      const id = event.target.dataset.id;
+      // Use find() on projectData to find object which contains the id (dataset.id)
+      // Access other object data, then I can build the HTML with JS
+      console.log(projectData);
+    });
+  });
+}, 1000);
+
+
+
+
+
+
 // Project name
 // const windowProjectName = document.createElement('div');
 // windowProjectName.setAttribute('class', 'text-slate-700');
