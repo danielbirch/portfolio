@@ -272,10 +272,10 @@ function renderCards(dataRef) {
 
 
 // OPEN PROJECT IN WINDOW ON BUTTON CLICK AND CLOSE BUTTON FUNCTIONALITY
-setTimeout(() => {
-  const viewPortfolioItem = document.querySelector('.view-button');
-  viewPortfolioItem.addEventListener('click', openPortfolio);
-}, 1000);
+// setTimeout(() => {
+//   const viewPortfolioItem = document.querySelector('.view-button');
+//   viewPortfolioItem.addEventListener('click', openPortfolio);
+// }, 1000);
 
 // document.onload.addEventListener('DOMContentLoaded', function () {
 //   const viewPortfolioItem = document.getElementById('view-button-5');
@@ -306,6 +306,7 @@ setTimeout((projectData) => {
       // Use find() on projectData to find object which contains the id (dataset.id)
       // Access other object data, then I can build the HTML with JS
       console.log(projectData);
+      openPortfolio();
     });
   });
 }, 1000);

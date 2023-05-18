@@ -687,24 +687,16 @@ video {
   top: 0px;
 }
 
+.top-10 {
+  top: 2.5rem;
+}
+
 .top-3 {
   top: 0.75rem;
 }
 
 .top-\[48px\] {
   top: 48px;
-}
-
-.top-1 {
-  top: 0.25rem;
-}
-
-.top-5 {
-  top: 1.25rem;
-}
-
-.top-10 {
-  top: 2.5rem;
 }
 
 .z-10 {
