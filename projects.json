@@ -1,7 +1,7 @@
 {"projects":[
   {
     "projectName": "VIPT SaaS",
-    "id": 5,
+    "id": 0,
     "excerpt": "A platform for personal trainers to create workouts & nutrition plans, send notifications, process payments & more.",
     "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
     "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
@@ -18,7 +18,7 @@
   },
   {
     "projectName": "Tasti eCommerce",
-    "id": 4,
+    "id": 1,
     "excerpt": "A fully featured online shop including Stripe payment integration, AusPost shipping integration and much more.",
     "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
     "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
@@ -35,7 +35,7 @@
   },
   {
     "projectName": "JS Flash Cards",
-    "id": 3,
+    "id": 2,
     "excerpt": "A learning tool to help myself & others memorise JavaScript fundamentals as well as useful methods, functions & objects.",
     "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
     "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
@@ -52,7 +52,7 @@
   },
   {
     "projectName": "Counter",
-    "id": 2,
+    "id": 3,
     "excerpt": "This was the first project I completed without any tutorials. I researched and implemented local storage to achieve save, load and reset functionality.",
     "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
     "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
@@ -69,7 +69,7 @@
   },
   {
     "projectName": "To Do List",
-    "id": 1,
+    "id": 4,
     "excerpt": "This was my first real JavaScript project. I followed a tutorial while also adding my own code which shows a message when all tasks are complete.",
     "descriptionP1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",
     "descriptionP2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum pretium sodales velit, nec vehicula magna ullamcorper in.",

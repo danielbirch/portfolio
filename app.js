@@ -133,11 +133,8 @@ window.onload = function () {
 			var token = grecaptcha.getResponse();
 			// Send and error handling
 			emailjs
-				.sendForm(
-					"contact_service",
-					"contact_form",
-					this,
-					"_2pCU9m_2a6DSJeRj",
+				.sendForm("contact_service", "contact_form",
+					this, "_2pCU9m_2a6DSJeRj",
 					{ "g-recaptcha-response": token }
 				)
 				.then(
@@ -170,181 +167,183 @@ window.onload = function () {
 		.then((data) => {
 			const projectCount = data.projects.length;
 			// Iterate through all objects in JSON
-			for (i = 0; i < projectCount; i++) {
+			for (let i = 0; i < projectCount; i++) {
 				projectData.push(data.projects[i]);
-        // renderCard(projectData[i]);
-        console.log(projectData[i]);
-      }
-      renderCard(projectData[i]);
+			}
+			renderCards(projectData);
 		})
 		.catch((error) => {
 			console.error(error);
 		});
 };
 
-function renderCard(dataRef) {
-  for (i = 0; i < projectData.length; i++) {
+function renderCards(projectData) {
+	projectData.forEach((project, index) => {
+		// console.log(`Index:${index}`, project);
+		// Render card on page and set ID's
+		const portfolioSection = document.getElementById("portfolio");
+		const newProject = document.createElement("div");
 
-	// Render card on page and set ID's
-	const portfolioSection = document.getElementById("portfolio");
-	const newProject = document.createElement("div");
-	newProject.setAttribute("id", "card-item-" + dataRef[i]); // Error on this line, why?
-	newProject.setAttribute("class", "card md:max-w-[48%] lg:max-w-[31%]");
-	portfolioSection.appendChild(newProject);
+		newProject.setAttribute("id", "card-item-" + index); // Alternative `card-item-${index}`
+		newProject.setAttribute("class", "card md:max-w-[48%] lg:max-w-[31%]"); // CSS Grid - Tailwind
+		portfolioSection.appendChild(newProject);
 
-	// Main image
-	const mainImage = document.createElement("div");
-	mainImage.setAttribute("id", "main-image-" + dataRef[i]);
-	mainImage.setAttribute("class", "flex w-full");
-	newProject.appendChild(mainImage);
-    
-	// IMG
-	const mainImageSrc = document.createElement("img");
-	mainImageSrc.setAttribute("src", dataRef.mainImage);
-	mainImageSrc.setAttribute("class", "rounded-xl");
-	mainImage.appendChild(mainImageSrc);
+		// Image Container // rename after 
+		const mainImage = document.createElement("div");
+		mainImage.setAttribute("id", "main-image-" + index); // Alternative `card-item-${index}`
+		mainImage.setAttribute("class", "flex w-full");
+		newProject.appendChild(mainImage);
 
-	// Card Header DIV
-	const cardHeader = document.createElement("div");
-	cardHeader.setAttribute("id", "card-header-" + dataRef[i]);
-	cardHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-4 pb-3");
-	newProject.appendChild(cardHeader);
+		// Image
+		const mainImageSrc = document.createElement("img");
+		mainImageSrc.setAttribute("src", project.mainImage);
+		mainImageSrc.setAttribute("class", "rounded-xl");
+		mainImage.appendChild(mainImageSrc);
 
-	// Project name
-	const projectNameList = "flex flex-wrap justify-start content-center w-6/12 text-slate-600 font-bold text-md sm:text-lg dark:text-slate-50";
-	const projectName = document.createElement("div");
-	projectName.setAttribute("id", "project-name-" + dataRef[i]);
-	projectName.setAttribute("class", projectNameList);
-	projectName.textContent = dataRef.projectName;
-	cardHeader.appendChild(projectName);
+		// Card Header DIV
+		const cardHeader = document.createElement("div");
+		cardHeader.setAttribute("id", "card-header-" + index);
+		cardHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-4 pb-3");
+		newProject.appendChild(cardHeader);
 
-	// Card Icon Box DIV
-	const cardIconBox = document.createElement("div");
-	cardIconBox.setAttribute("id", "card-icon-box-" + dataRef[i]);
-	cardIconBox.setAttribute("class", "flex justify-end w-6/12");
-	cardHeader.appendChild(cardIconBox);
+		// Project name
+		const projectNameList = "flex flex-wrap justify-start content-center w-6/12 text-slate-600 font-bold text-md sm:text-lg dark:text-slate-50";
+		const projectName = document.createElement("div");
+		projectName.setAttribute("id", "project-name-" + index);
+		projectName.setAttribute("class", projectNameList);
+		projectName.textContent = project.projectName;
+		cardHeader.appendChild(projectName);
 
-	// UL
-	const techUsed = document.createElement("ul");
-	techUsed.setAttribute("class", "flex flex-wrap w-full justify-end content-center");
-	cardIconBox.appendChild(techUsed);
+		// Card Icon Box DIV
+		const cardIconBox = document.createElement("div");
+		cardIconBox.setAttribute("id", "card-icon-box-" + index);
+		cardIconBox.setAttribute("class", "flex justify-end w-6/12");
+		cardHeader.appendChild(cardIconBox);
 
-	// IMG
-	const techObject = {
-		html: {
-			data: dataRef.html,
-			src: "./assets/html5.svg",
-		},
-		css: {
-			data: dataRef.css,
-			src: "./assets/css3.svg",
-		},
-		js: {
-			data: dataRef.js,
-			src: "./assets/javascript.svg",
-		},
-		vue: {
-			data: dataRef.vue,
-			src: "./assets/vuejs.svg",
-		},
-		tailwind: {
-			data: dataRef.tailwind,
-			src: "./assets/tailwind-css.svg",
-		},
-		firebase: {
-			data: dataRef.firebase,
-			src: "./assets/firebase.svg",
-		},
-	};
+		// UL
+		const techUsed = document.createElement("ul");
+		techUsed.setAttribute("class", "flex flex-wrap w-full justify-end content-center");
+		cardIconBox.appendChild(techUsed);
 
-	// Iterate over techObject, create new li & show icons if is true
-	Object.keys(techObject).forEach((key) => {
-		if (techObject[key].data) {
-			// Create LI
-			const techUsedLi = document.createElement("li");
-			techUsedLi.setAttribute(
-				"class",
-				"flex flex-nowrap justify-center content-center px-1 w-6 h-4"
-			);
-			techUsed.appendChild(techUsedLi);
-			// Create IMG
-			const techImage = document.createElement("img");
-			techImage.setAttribute("src", "");
-			techImage.setAttribute("src", techObject[key].src);
-			techImage.setAttribute("alt", techObject[key].data);
-			techUsedLi.appendChild(techImage);
+		// IMG
+		const techObject = {
+			html: {
+				data: project.html,
+				src: "./assets/html5.svg",
+			},
+			css: {
+				data: project.css,
+				src: "./assets/css3.svg",
+			},
+			js: {
+				data: project.js,
+				src: "./assets/javascript.svg",
+			},
+			vue: {
+				data: project.vue,
+				src: "./assets/vuejs.svg",
+			},
+			tailwind: {
+				data: project.tailwind,
+				src: "./assets/tailwind-css.svg",
+			},
+			firebase: {
+				data: project.firebase,
+				src: "./assets/firebase.svg",
+			},
+		};
+
+		// Iterate over techObject, create new li & show icons if is true
+		Object.keys(techObject).forEach((key) => {
+			if (techObject[key].data) {
+				// Create LI
+				const techUsedLi = document.createElement("li");
+				techUsedLi.setAttribute("class", "flex flex-nowrap justify-center content-center px-1 w-6 h-4");
+				techUsed.appendChild(techUsedLi);
+				// Create IMG
+				const techImage = document.createElement("img");
+				techImage.setAttribute("src", "");
+				techImage.setAttribute("src", techObject[key].src);
+				techImage.setAttribute("alt", techObject[key].data);
+				techUsedLi.appendChild(techImage);
+			}
+		});
+
+		// Excerpt
+		const excerpt = document.createElement("div");
+		excerpt.setAttribute("id", "excerpt-" + index);
+		excerpt.setAttribute("class", "flex flex-row w-full justify-start content-center px-2 pt-2");
+		excerpt.textContent = project.excerpt;
+		newProject.appendChild(excerpt);
+
+		// Button Div
+		const viewButtonBox = document.createElement("div");
+		viewButtonBox.setAttribute("id", "view-button-box-" + index);
+		viewButtonBox.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-6");
+		newProject.appendChild(viewButtonBox);
+
+		// Button
+		let viewButton = document.createElement("a");
+		// const rand = Math.floor(Math.random() * 100);
+		viewButton.setAttribute("data-id", index);
+		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer");
+		// viewButton.setAttribute('href', dataRef.link);
+		// viewButton.setAttribute('target', '_blank');
+		viewButton.textContent = "View Project";
+		viewButtonBox.appendChild(viewButton);
+
+		// ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
+		if (project.development === true) {
+			mainImage.classList.add("relative");
+			const badge = document.createElement("div");
+			badge.textContent = "Coming Soon";
+			badge.setAttribute("class", "absolute right-[10px] bottom-[10px] py-1 px-2 text-xs bg-[#00000095] text-slate-50 rounded-md");
+			mainImage.appendChild(badge);
 		}
-	});
+	}
+	)
+};
 
-	// Excerpt
-	const excerpt = document.createElement("div");
-	excerpt.setAttribute("id", "excerpt-" + dataRef.id);
-	excerpt.setAttribute(
-		"class",
-		"flex flex-row w-full justify-start content-center px-2 pt-2"
-	);
-	excerpt.textContent = dataRef.excerpt;
-	newProject.appendChild(excerpt);
-
-	// Button Div
-	const viewButtonBox = document.createElement("div");
-	viewButtonBox.setAttribute("id", "view-button-box-" + dataRef.id);
-	viewButtonBox.setAttribute(
-		"class",
-		"flex flex-row w-full justify-center content-center px-2 pt-6"
-	);
-	newProject.appendChild(viewButtonBox);
-	// Button
-	let viewButton = document.createElement("a");
-	// const rand = Math.floor(Math.random() * 100);
-	viewButton.setAttribute("data-id", dataRef.id);
-	viewButton.setAttribute(
-		"class",
-		"view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer"
-	);
-	// viewButton.setAttribute('href', dataRef.link);
-	// viewButton.setAttribute('target', '_blank');
-	viewButton.textContent = "View Project";
-	viewButtonBox.appendChild(viewButton);
-
-	// ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
-	if (dataRef.development === true) {
-		mainImage.classList.add("relative");
-		const badge = document.createElement("div");
-		badge.textContent = "Coming Soon";
-		badge.setAttribute(
-			"class",
-			"absolute right-[10px] bottom-[10px] py-1 px-2 text-xs bg-[#00000095] text-slate-50 rounded-md"
-		);
-		mainImage.appendChild(badge);
-  }
-}
-}
-
-// OPEN PROJECT IN WINDOW ON BUTTON CLICK AND CLOSE BUTTON FUNCTIONALITY
-// setTimeout(() => {
-//   const viewPortfolioItem = document.querySelector('.view-button');
-//   viewPortfolioItem.addEventListener('click', openPortfolio);
-// }, 1000);
-
-// window.onload(() => {
-// })
-
-// document.addEventListener("DOMContentLoaded", () => {
-// });
-
-// document.onload.addEventListener('DOMContentLoaded', function () {
-//   const viewPortfolioItem = document.getElementById('view-button-5');
-//   viewPortfolioItem.addEventListener('click', openPortfolio);
-// })
+	// BUILD PROJECT DETAILS PAGE ON CLICK
+	setTimeout((projectData) => {
+		const portfolioButtons = document.querySelectorAll(".view-button");
+		portfolioButtons.forEach((button) => {
+			button.addEventListener("click", (e) => {
+				const projectId = e.target.dataset.id;
+				// console.log(projectData); // Why is this undefined, it's in global scope?
+				openPortfolio(projectId);
+			});
+		});
+	}, 1000);
 
 let pWindow = document.getElementById("p-window");
 const closeWindow = document.querySelector(".close");
 
-function openPortfolio() {
+function openPortfolio(projectId) {
 	pWindow.classList.toggle("hidden");
 	closeWindow.addEventListener("click", windowClose);
-	// console.log(projectData);
+
+	// console.log(projectId);
+// This should work, why doesn't it??
+	const project = projectData.find((project) => project.id === projectId);
+
+	if (project) {
+		console.log('found');
+
+		// Create project title in modal
+		const modalTitle = document.createElement("div");
+		modalTitle.textContent = project.projectName;
+		pWindow.appendChild(modalTitle);
+
+		// Create project image in modal
+		const modalImageSrc = document.createElement("img");
+		modalImageSrc.setAttribute("src", project.mainImage);
+		modalImageSrc.setAttribute("class", "rounded-xl w-[20%]");
+		pWindow.appendChild(modalImageSrc);
+
+	} else {
+		console.error('Project could not be found.');
+	}
 }
 
 function windowClose() {
@@ -352,42 +351,14 @@ function windowClose() {
 	closeWindow.removeEventListener("click", windowClose);
 }
 
-// BUILD PROJECT DETAILS PAGE ON CLICK
-setTimeout(() => {
-	const portfolioButtons = document.querySelectorAll(".view-button");
-	portfolioButtons.forEach((button) => {
-		console.log(button);
 
-		button.addEventListener("click", (event) => {
-			// Get the ID of the clicked button
-			const id = event.target.dataset.id;
 
-      // if (id === projectData[id]) {
-      //   console.log('same ids');
-      // }
-			// Use find() on projectData to find object which contains the id (dataset.id)
-			// Access other object data, then I can build the HTML with JS
-			// console.log(projectData[id].id);
-			openPortfolio();
-		});
-	});
-}, 1000);
 
-// Project name
-// const windowProjectName = document.createElement('div');
-// windowProjectName.setAttribute('class', 'text-slate-700');
-// windowProjectName.textContent = projectDataRef.id;
-// pWindow.appendChild(windowProjectName);
-// console.log(projectDataRef[i]);
-// if (projectData.id === 5) {
-//   console.log('5', projectData);
-// } else {
-//   console.log('not 5');
-// }
-// }
+
 
 // DYNAMICALLY GENERATE YEAR FOR FOOTER
-document.getElementById("year").innerText = "\u00A0" + new Date().getFullYear() + "\u00A0";
+document.getElementById("year").innerText =
+	"\u00A0" + new Date().getFullYear() + "\u00A0";
 
 // LOAD CONTENT FROM README.MD & SHOW ON CHANGELOG PAGE
 // Need to setup Webpack first, then use remark-loader (https://www.npmjs.com/package/remark-loader?activeTab=readme)
