@@ -284,7 +284,6 @@ function renderCards(projectData) {
 
 		// Button
 		let viewButton = document.createElement("a");
-		// const rand = Math.floor(Math.random() * 100);
 		viewButton.setAttribute("data-id", index);
 		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer");
 		// viewButton.setAttribute('href', dataRef.link);
@@ -311,16 +310,21 @@ function renderCards(projectData) {
 			button.addEventListener("click", (e) => {
 				const projectId = e.target.dataset.id;
 				// console.log(projectData); // Why is this undefined, it's in global scope?
-				openPortfolio(projectId);
+				openPortfolio(1);
 			});
 		});
+		// openPortfolio(1);
 	}, 1000);
 
 let pWindow = document.getElementById("p-window");
+const overlayToggle = document.getElementById("overlay");
+const noScroll = document.querySelector("body");
 const closeWindow = document.querySelector(".close");
 
 function openPortfolio(projectId) {
 	pWindow.classList.toggle("hidden");
+	overlayToggle.classList.toggle("hidden");
+	noScroll.classList.add("no-scroll");
 	closeWindow.addEventListener("click", windowClose);
 
 	// console.log(projectId);
@@ -330,16 +334,110 @@ function openPortfolio(projectId) {
 	if (project) {
 		console.log('found');
 
-		// Create project title in modal
-		const modalTitle = document.createElement("div");
-		modalTitle.textContent = project.projectName;
-		pWindow.appendChild(modalTitle);
-
 		// Create project image in modal
 		const modalImageSrc = document.createElement("img");
 		modalImageSrc.setAttribute("src", project.mainImage);
-		modalImageSrc.setAttribute("class", "rounded-xl w-[20%]");
+		modalImageSrc.setAttribute("class", "w-[100%]");
 		pWindow.appendChild(modalImageSrc);
+
+		// Modal Header
+		const modalHeader = document.createElement("div");
+		modalHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-3 pt-4 pb-0");
+		pWindow.appendChild(modalHeader);
+
+		// Modal Icons Container
+		const cardIconBox = document.createElement("div");
+		cardIconBox.setAttribute("class", "flex justify-start w-8/12");
+		modalHeader.appendChild(cardIconBox);
+
+		// Modal Button Container
+		const otherPart = document.createElement("div");
+		otherPart.setAttribute("class", "flex justify-end w-4/12");
+		modalHeader.appendChild(otherPart);
+
+		// Modal View Project Button
+		let viewButton = document.createElement("a");
+		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer");
+		viewButton.setAttribute('href', project.link);
+		viewButton.setAttribute('target', '_blank');
+		viewButton.textContent = "View Project";
+		otherPart.appendChild(viewButton);
+
+		// UL
+		const techUsed = document.createElement("ul");
+		techUsed.setAttribute("class", "flex flex-wrap w-full justify-start content-center p-0");
+		cardIconBox.appendChild(techUsed);
+
+		// IMG
+		const techObject = {
+			html: {
+				data: project.html,
+				src: "./assets/html5.svg",
+			},
+			css: {
+				data: project.css,
+				src: "./assets/css3.svg",
+			},
+			js: {
+				data: project.js,
+				src: "./assets/javascript.svg",
+			},
+			vue: {
+				data: project.vue,
+				src: "./assets/vuejs.svg",
+			},
+			tailwind: {
+				data: project.tailwind,
+				src: "./assets/tailwind-css.svg",
+			},
+			firebase: {
+				data: project.firebase,
+				src: "./assets/firebase.svg",
+			},
+		};
+
+		// Iterate over techObject, create new li & show icons if is true
+		Object.keys(techObject).forEach((key) => {
+			if (techObject[key].data) {
+				// Create LI
+				const techUsedLi = document.createElement("li");
+				techUsedLi.setAttribute("class", "flex flex-nowrap justify-center content-center px-2 w-10 h-8");
+				techUsed.appendChild(techUsedLi);
+				// Create IMG
+				const techImage = document.createElement("img");
+				techImage.setAttribute("src", "");
+				techImage.setAttribute("src", techObject[key].src);
+				techImage.setAttribute("alt", techObject[key].data);
+				techUsedLi.appendChild(techImage);
+			}
+		});
+
+
+
+
+
+		// Create project title in modal
+		const modalTitle = document.createElement("div");
+		modalTitle.setAttribute("class", "px-5 py-5 text-2xl font-bold")
+		modalTitle.textContent = project.projectName;
+		pWindow.appendChild(modalTitle);
+
+		// Create descriptions
+		const descriptionP1 = document.createElement("div");
+		descriptionP1.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP1.textContent = project.descriptionP1;
+		pWindow.appendChild(descriptionP1);
+
+		const descriptionP2 = document.createElement("div");
+		descriptionP2.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP2.textContent = project.descriptionP2;
+		pWindow.appendChild(descriptionP2);
+
+		const descriptionP3 = document.createElement("div");
+		descriptionP3.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP3.textContent = project.descriptionP3;
+		pWindow.appendChild(descriptionP3);
+
 
 	} else {
 		console.error('Project could not be found.');
@@ -348,7 +446,10 @@ function openPortfolio(projectId) {
 
 function windowClose() {
 	pWindow.classList.toggle("hidden");
+	overlayToggle.classList.toggle("hidden");
+	noScroll.classList.remove("no-scroll");
 	closeWindow.removeEventListener("click", windowClose);
+	// Need to clear pWindow content on close, or else I get doubles
 }
 
 

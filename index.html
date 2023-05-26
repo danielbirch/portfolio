@@ -27,6 +27,7 @@
 </head>
 
 <body class="w-screen bg-[#fff] dark:bg-[#1E293B] font-body text-base text-slate-600 subpixel-antialiased md:w-full">
+  <div id="overlay" class="fixed z-20 w-screen h-screen bg-slate-950/50 hidden"></div>
 
   <!-- MOBILE HEADER -->
   <header
@@ -53,9 +54,8 @@
       <div
         class="flex flex-auto flex-wrap justify-end content-center w-6/12 p-3 text-[1.03rem] font-semibold text-slate-600">
         <nav>
-          <a href="#about" class="link md:mr-5">About Me</a>
-          <a href="#portfolio" class="link md:mr-5">Explore Portfolio</a>
-          <a href="/resources.html" class="link">Resources</a>
+          <a href="#about" class="link md:ml-5">About Me</a>
+          <a href="#portfolio" class="link md:ml-5">Explore Portfolio</a>
         </nav>
       </div>
       <div class="flex flex-auto flex-wrap justify-end content-center w-2/12 p-3">
@@ -71,7 +71,7 @@
     </div>
   </header>
 
-  <!-- MOBILE MENU SECTION -->
+  <!-- MOBILE MENU DROPDOWN -->
   <div id="mobile-menu" class="flex w-screen z-10 mt-[70px] fixed bg-white dbshadow rounded-b-xl hidden">
     <div
       class="flex flex-col flex-wrap justify-center content-center w-screen min-h-[45vh] p-3 text-[1.03rem] font-semibold text-slate-600 sm:min-h-[35vh]">
@@ -81,8 +81,6 @@
         <a href="#portfolio"
           class="link flex flex-wrap justify-center content-center w-fit mx-[auto] my-[1.7rem] sm:text-xl">Explore
           Portfolio</a>
-        <a href="/resources.html"
-          class="link flex flex-wrap justify-center content-center w-fit mx-[auto] my-[1.7rem] sm:text-xl">Resources</a>
       </nav>
       <div class="flex flex-row flex-wrap justify-center content-center w-screen">
         <a href="https://github.com/danielbirch" target="_blank"><i class="fa-brands fa-github m-3 text-2xl"></i></a>
@@ -193,7 +191,7 @@
     class="flex flex-col flex-wrap w-screen gap-[2rem] p-6 md:flex-row md:w-full md:justify-start md:mx-auto md:gap-[2.5rem] lg:w-[1200px] lg:gap-[2.62rem] lg:pt-[115px] lg:mt-[-100px] lg:mb-[-20px] lg:px-0 lg:pb-0">
   </div>
   <div id="p-window"
-    class="card w-screen h-[650px] m-auto p-10 fixed top-10 bottom-0 left-0 right-0 hidden lg:w-[1200px]">
+    class="card block flex-col w-screen h-[100vh] z-30 m-auto p-0 fixed top-0 bottom-0 left-0 right-0 pb-2 hidden overflow-y-auto lg:w-[600px] lg:h-[82vh]">
     <div class="close flex absolute top-3 right-4 cursor-pointer font-bold text-sm text-red-400">CLOSE</div>
   </div>
 
@@ -253,8 +251,7 @@
       Copyright © <span id="year"></span> Daniel Birch. All rights reserved.</div>
     <div id="links" class="flex flex-wrap justify-center content-center p-2 sm:p-1 md:w-2/12 lg:p-2 lg:justify-end">
       <nav>
-        <a href="/privacy.html" class="link-footer">Privacy</a> |
-        <a href="/changelog.html" class="link-footer">Changelog</a>
+        <a href="/privacy.html" class="link-footer">Privacy</a>
       </nav>
     </div>
     <div id="netlify" class="flex flex-wrap justify-center content-center p-2 md:w-2/12 lg:justify-end">
@@ -268,5 +265,4 @@
   <script src="/app.js" defer></script>
 
 </body>
-
 </html>
