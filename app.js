@@ -64,10 +64,7 @@ function loadMode(saveValue) {
 	const getValue = localStorage.getItem("Dark Mode");
 	if (getValue === "true") {
 		htmlUpdate.classList.add("dark");
-		if (
-			dark.classList.contains("hidden") ||
-			darkMob.classList.contains("hidden")
-		) {
+		if (dark.classList.contains("hidden") || darkMob.classList.contains("hidden")) {
 			dark.classList.remove("hidden");
 			light.classList.add("hidden");
 			darkMob.classList.remove("hidden");
@@ -140,12 +137,8 @@ window.onload = function () {
 				.then(
 					function () {
 						console.log("Success");
-						document
-							.getElementById("g-recaptcha")
-							.classList.add("hidden");
-						const inputs = document.querySelectorAll(
-							"#user_name, #user_email, #message"
-						);
+						document.getElementById("g-recaptcha").classList.add("hidden");
+						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
 						inputs.forEach((input) => {
 							input.value = "";
 						});
@@ -180,36 +173,33 @@ window.onload = function () {
 function renderCards(projectData) {
 	projectData.forEach((project, index) => {
 		// console.log(`Index:${index}`, project);
-		// Render card on page and set ID's
+
+		// Render cards on page
 		const portfolioSection = document.getElementById("portfolio");
 		const newProject = document.createElement("div");
 
-		newProject.setAttribute("id", "card-item-" + index); // Alternative `card-item-${index}`
 		newProject.setAttribute("class", "card md:max-w-[48%] lg:max-w-[31%]"); // CSS Grid - Tailwind
 		portfolioSection.appendChild(newProject);
 
-		// Image Container // rename after 
+		// Project Image Container
 		const mainImage = document.createElement("div");
-		mainImage.setAttribute("id", "main-image-" + index); // Alternative `card-item-${index}`
 		mainImage.setAttribute("class", "flex w-full");
 		newProject.appendChild(mainImage);
 
-		// Image
+		// Project Image
 		const mainImageSrc = document.createElement("img");
 		mainImageSrc.setAttribute("src", project.mainImage);
 		mainImageSrc.setAttribute("class", "rounded-xl");
 		mainImage.appendChild(mainImageSrc);
 
-		// Card Header DIV
+		// Project Name & Icons Container
 		const cardHeader = document.createElement("div");
-		cardHeader.setAttribute("id", "card-header-" + index);
 		cardHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-4 pb-3");
 		newProject.appendChild(cardHeader);
 
-		// Project name
+		// Project Name
 		const projectNameList = "flex flex-wrap justify-start content-center w-6/12 text-slate-600 font-bold text-md sm:text-lg dark:text-slate-50";
 		const projectName = document.createElement("div");
-		projectName.setAttribute("id", "project-name-" + index);
 		projectName.setAttribute("class", projectNameList);
 		projectName.textContent = project.projectName;
 		cardHeader.appendChild(projectName);
@@ -220,12 +210,12 @@ function renderCards(projectData) {
 		cardIconBox.setAttribute("class", "flex justify-end w-6/12");
 		cardHeader.appendChild(cardIconBox);
 
-		// UL
+		// Icons UL
 		const techUsed = document.createElement("ul");
 		techUsed.setAttribute("class", "flex flex-wrap w-full justify-end content-center");
 		cardIconBox.appendChild(techUsed);
 
-		// IMG
+		// Icons
 		const techObject = {
 			html: {
 				data: project.html,
@@ -271,14 +261,12 @@ function renderCards(projectData) {
 
 		// Excerpt
 		const excerpt = document.createElement("div");
-		excerpt.setAttribute("id", "excerpt-" + index);
 		excerpt.setAttribute("class", "flex flex-row w-full justify-start content-center px-2 pt-2");
 		excerpt.textContent = project.excerpt;
 		newProject.appendChild(excerpt);
 
-		// Button Div
+		// Button Container
 		const viewButtonBox = document.createElement("div");
-		viewButtonBox.setAttribute("id", "view-button-box-" + index);
 		viewButtonBox.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-6");
 		newProject.appendChild(viewButtonBox);
 
@@ -286,9 +274,7 @@ function renderCards(projectData) {
 		let viewButton = document.createElement("a");
 		viewButton.setAttribute("data-id", index);
 		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer");
-		// viewButton.setAttribute('href', dataRef.link);
-		// viewButton.setAttribute('target', '_blank');
-		viewButton.textContent = "View Project";
+		viewButton.textContent = "Learn More";
 		viewButtonBox.appendChild(viewButton);
 
 		// ADD COMING SOON BUTTON ON TOP OF PROJECT ITEMS
@@ -303,47 +289,47 @@ function renderCards(projectData) {
 	)
 };
 
-	// BUILD PROJECT DETAILS PAGE ON CLICK
+	// BUILD PROJECT DETAILS IN MODAL ON CLICK
 	setTimeout((projectData) => {
 		const portfolioButtons = document.querySelectorAll(".view-button");
 		portfolioButtons.forEach((button) => {
 			button.addEventListener("click", (e) => {
-				const projectId = e.target.dataset.id;
+				let projectId = e.target.dataset.id;
 				// console.log(projectData); // Why is this undefined, it's in global scope?
-				openPortfolio(1);
+				openPortfolio(projectId);
 			});
 		});
-		// openPortfolio(1);
 	}, 1000);
 
 let pWindow = document.getElementById("p-window");
+const modalContent = document.getElementById("modal-content");
 const overlayToggle = document.getElementById("overlay");
 const noScroll = document.querySelector("body");
 const closeWindow = document.querySelector(".close");
 
 function openPortfolio(projectId) {
+	if (typeof(projectId) === 'string') {
+		projectId = parseInt(projectId);
+	}
+    
 	pWindow.classList.toggle("hidden");
 	overlayToggle.classList.toggle("hidden");
 	noScroll.classList.add("no-scroll");
 	closeWindow.addEventListener("click", windowClose);
 
-	// console.log(projectId);
-// This should work, why doesn't it??
-	const project = projectData.find((project) => project.id === projectId);
+	const project = projectData.find((project) =>  project.id === projectId);
 
 	if (project) {
-		console.log('found');
-
-		// Create project image in modal
+		// Modal Image
 		const modalImageSrc = document.createElement("img");
 		modalImageSrc.setAttribute("src", project.mainImage);
 		modalImageSrc.setAttribute("class", "w-[100%]");
-		pWindow.appendChild(modalImageSrc);
+		modalContent.appendChild(modalImageSrc);
 
 		// Modal Header
 		const modalHeader = document.createElement("div");
-		modalHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-3 pt-4 pb-0");
-		pWindow.appendChild(modalHeader);
+		modalHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-5 pt-4 pb-0");
+		modalContent.appendChild(modalHeader);
 
 		// Modal Icons Container
 		const cardIconBox = document.createElement("div");
@@ -363,12 +349,12 @@ function openPortfolio(projectId) {
 		viewButton.textContent = "View Project";
 		otherPart.appendChild(viewButton);
 
-		// UL
+		// Modal Icons UL
 		const techUsed = document.createElement("ul");
 		techUsed.setAttribute("class", "flex flex-wrap w-full justify-start content-center p-0");
 		cardIconBox.appendChild(techUsed);
 
-		// IMG
+		// Modal Icons
 		const techObject = {
 			html: {
 				data: project.html,
@@ -401,7 +387,7 @@ function openPortfolio(projectId) {
 			if (techObject[key].data) {
 				// Create LI
 				const techUsedLi = document.createElement("li");
-				techUsedLi.setAttribute("class", "flex flex-nowrap justify-center content-center px-2 w-10 h-8");
+				techUsedLi.setAttribute("class", "flex flex-nowrap justify-center content-center px-1 w-7 h-5");
 				techUsed.appendChild(techUsedLi);
 				// Create IMG
 				const techImage = document.createElement("img");
@@ -412,32 +398,27 @@ function openPortfolio(projectId) {
 			}
 		});
 
+		// Modal Project Name
+		const modalProjectName = document.createElement("div");
+		modalProjectName.setAttribute("class", "px-6 py-5 text-2xl font-bold")
+		modalProjectName.textContent = project.projectName;
+		modalContent.appendChild(modalProjectName);
 
-
-
-
-		// Create project title in modal
-		const modalTitle = document.createElement("div");
-		modalTitle.setAttribute("class", "px-5 py-5 text-2xl font-bold")
-		modalTitle.textContent = project.projectName;
-		pWindow.appendChild(modalTitle);
-
-		// Create descriptions
+		// Modal Descriptions
 		const descriptionP1 = document.createElement("div");
-		descriptionP1.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP1.setAttribute("class", "flex flex-col w-full justify-start content-center px-6 pb-5");
 		descriptionP1.textContent = project.descriptionP1;
-		pWindow.appendChild(descriptionP1);
+		modalContent.appendChild(descriptionP1);
 
 		const descriptionP2 = document.createElement("div");
-		descriptionP2.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP2.setAttribute("class", "flex flex-col w-full justify-start content-center px-6 pb-5");
 		descriptionP2.textContent = project.descriptionP2;
-		pWindow.appendChild(descriptionP2);
+		modalContent.appendChild(descriptionP2);
 
 		const descriptionP3 = document.createElement("div");
-		descriptionP3.setAttribute("class", "flex flex-col w-full justify-start content-center px-5 pb-5");
+		descriptionP3.setAttribute("class", "flex flex-col w-full justify-start content-center px-6 pb-5");
 		descriptionP3.textContent = project.descriptionP3;
-		pWindow.appendChild(descriptionP3);
-
+		modalContent.appendChild(descriptionP3);
 
 	} else {
 		console.error('Project could not be found.');
@@ -449,17 +430,11 @@ function windowClose() {
 	overlayToggle.classList.toggle("hidden");
 	noScroll.classList.remove("no-scroll");
 	closeWindow.removeEventListener("click", windowClose);
-	// Need to clear pWindow content on close, or else I get doubles
+	modalContent.replaceChildren();
 }
 
-
-
-
-
-
 // DYNAMICALLY GENERATE YEAR FOR FOOTER
-document.getElementById("year").innerText =
-	"\u00A0" + new Date().getFullYear() + "\u00A0";
+document.getElementById("year").innerText = "\u00A0" + new Date().getFullYear() + "\u00A0";
 
 // LOAD CONTENT FROM README.MD & SHOW ON CHANGELOG PAGE
 // Need to setup Webpack first, then use remark-loader (https://www.npmjs.com/package/remark-loader?activeTab=readme)
