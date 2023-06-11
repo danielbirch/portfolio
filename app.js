@@ -343,7 +343,7 @@ function openPortfolio(projectId) {
 
 		// Modal View Project Button
 		let viewButton = document.createElement("a");
-		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[1.05rem] font-semibold cursor-pointer");
+		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[15px] lg:text-[1.05rem] font-semibold cursor-pointer");
 		viewButton.setAttribute('href', project.link);
 		viewButton.setAttribute('target', '_blank');
 		viewButton.textContent = "View Project";
