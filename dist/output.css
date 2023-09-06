@@ -658,6 +658,10 @@ video {
   overflow: hidden;
 }
 
+.text-shadow {
+  text-shadow: 0px 0px 4px black;
+}
+
 .fixed {
   position: fixed;
 }
@@ -1229,6 +1233,10 @@ video {
   font-size: 1.05rem;
 }
 
+.text-\[15px\] {
+  font-size: 15px;
+}
+
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1252,10 +1260,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[15px\] {
-  font-size: 15px;
 }
 
 .font-bold {
@@ -1302,6 +1306,11 @@ video {
 .text-slate-600 {
   --tw-text-opacity: 1;
   color: rgb(71 85 105 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .subpixel-antialiased {
@@ -1718,13 +1727,13 @@ video {
     padding-top: 115px;
   }
 
+  .lg\:text-\[1\.05rem\] {
+    font-size: 1.05rem;
+  }
+
   .lg\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .lg\:text-\[1\.05rem\] {
-    font-size: 1.05rem;
   }
 
   .lg\:leading-tight {
