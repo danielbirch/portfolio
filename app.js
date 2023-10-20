@@ -119,40 +119,59 @@ skills.forEach((skill) => {
 // Add animated ... to send button after click, once sent, button turns green and message says "Message sent!"
 // Show error message on error event below button, use hidden to toggle visibility
 // Reload form or another way to reset recaptcha back to normal after submit without page refresh
-window.onload = function () {
-	document
-		.getElementById("contact-form")
-		.addEventListener("submit", function (event) {
-			event.preventDefault();
-			// Generate five digit number for contact_number variable
-			this.contact_number.value = Math.random() * 100000 | 0;
-			// // Grab recaptcha response
-			var token = grecaptcha.getResponse();
-			// Send and error handling
-			emailjs
-				.sendForm("contact_service", "contact_form",
-					this,
-					{ "g-recaptcha-response": token }
-				)
-				.then(
-					function () {
-						console.log("Success");
-						document.getElementById("g-recaptcha").classList.add("hidden");
-						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
-						inputs.forEach((input) => {
-							input.value = "";
-						});
-					},
-					function (error) {
-						console.log("Failed", error);
-					}
-				);
-		});
-};
+// window.onload = function () {
+// 	document
+// 		.getElementById("contact-form")
+// 		.addEventListener("submit", function (event) {
+// 			console.log("Form submitted");
+// 			event.preventDefault();
+// 			// Generate five digit number for contact_number variable
+// 			this.contact_number.value = Math.random() * 100000 | 0;
+// 			console.log(contact_number);
+// 			// // Grab recaptcha response
+// 			var token = grecaptcha.getResponse();
+// 			// Send and error handling
+// 			emailjs
+// 				.sendForm("contact_service", "contact_form",
+// 					this,
+// 					{ "g-recaptcha-response": token }
+// 				)
+// 				.then(
+// 					function () {
+// 						console.log("Success");
+// 						document.getElementById("g-recaptcha").classList.add("hidden");
+// 						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
+// 						inputs.forEach((input) => {
+// 							input.value = "zzz";
+// 						});
+// 					},
+// 					function (error) {
+// 						console.log("Failed", error);
+// 					}
+// 				);
+// 		});
+// };
 
-let projectData = [];
+window.onload = function() {
+	document.getElementById('contact-form').addEventListener('submit', function(event) {
+			event.preventDefault();
+			// generate a five digit number for the contact_number variable
+			this.contact_number.value = Math.random() * 100000 | 0;
+			// these IDs from the previous steps
+			emailjs.sendForm('contact_service', 'contact_form', this)
+					.then(function() {
+							console.log('SUCCESS!');
+					}, function(error) {
+							console.log('FAILED...', error);
+					});
+	});
+}
+
+
 
 // PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
+let projectData = [];
+
 window.onload = function () {
 	// Fetch the JSON file
 	fetch("./projects.json")
