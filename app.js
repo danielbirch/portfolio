@@ -125,13 +125,13 @@ window.onload = function () {
 		.addEventListener("submit", function (event) {
 			event.preventDefault();
 			// Generate five digit number for contact_number variable
-			this.contact_number.value = (Math.random() * 100000) | 0;
+			this.contact_number.value = Math.random() * 100000 | 0;
 			// // Grab recaptcha response
 			var token = grecaptcha.getResponse();
 			// Send and error handling
 			emailjs
 				.sendForm("contact_service", "contact_form",
-					this, "_2pCU9m_2a6DSJeRj",
+					this,
 					{ "g-recaptcha-response": token }
 				)
 				.then(
