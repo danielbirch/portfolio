@@ -3,6 +3,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
+  <title>Daniel Birch | Frontend Web Developer</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,17 +14,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js" defer></script>
-
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  
   <script type="text/javascript">
     (function() {
         // https://dashboard.emailjs.com/admin/account
-        emailjs.init('_2pCU9m_2a6DSJeRj');
+        emailjs.init('ElvR8U91ELN6yUuSr');
     })();
-</script>
+  </script>
 
-  <title>Daniel Birch | Frontend Web Developer</title>
+  <script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+// window.onload = function () {
+	document
+		.getElementById("contact-form")
+		.addEventListener("submit", function (event) {
+			// console.log("Form submitted");
+			event.preventDefault();
+			// Generate five digit number for contact_number variable
+			this.contact_number.value = (Math.random() * 100000) | 0;
+			// // Grab recaptcha response
+			var token = grecaptcha.getResponse();
+			// Send and error handling
+			emailjs
+				.sendForm("contact_service", "contact_form", this)
+				.then(
+					function () {
+						console.log("Message was sent!");
+						document.getElementById("g-recaptcha").classList.add("hidden");
+						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
+						inputs.forEach((input) => {
+							input.value = "";
+						});
+					},
+					function (error) {
+						console.log("Failed", error);
+					}
+				);
+		});
+});
+  </script>
 </head>
 
 <body class="w-screen bg-[#fff] dark:bg-[#1E293B] font-body text-base text-slate-600 subpixel-antialiased md:w-full">
@@ -171,9 +200,6 @@
           If you would like to send me a message, please complete the form below and I'll get back to you shortly. I'm
           currently open to the following opportunities: full time jobs, remote positions, freelance projects.
         </p>
-        <p class="font-body text-lg text-center pt-2 pb-8 lg:text-xl">
-          You can also reach me on <a href="tel:+37253903300" class="link">+372 5390 3300</a>
-        </p>
       </div>
       <div class="flex flex-wrap mx-auto justify-center content-center lg:w-full">
         <form id="contact-form" class="lg:w-1/2">
@@ -194,11 +220,11 @@
               <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3 outline-offset-0 outline-2 outline-sky-800 dark:text-slate-50 dark:bg-[#1E293B]" required></textarea>
             </div>
             <div class="flex flex-wrap flex-col m-2">
-              <!-- <div id="g-recaptcha" class="mb-5"></div> -->
+              <div id="g-recaptcha" class="mb-5"></div>
               <input type="submit" value="Send Message" class="primarybtn">
             </div>
           </fieldset>
-          <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script> -->
+          <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
         </form>
       </div>
     </div>
@@ -221,16 +247,13 @@
 
   <script src="/app.js" defer></script>
 
-
-
-
-  <!-- <script type="text/javascript">
+  <script type="text/javascript">
     var onloadCallback = function () {
       grecaptcha.render('g-recaptcha', {
         'sitekey': '6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU'
       });
     };
-  </script> -->
+  </script>
 
 </body>
 </html>
