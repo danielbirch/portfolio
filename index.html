@@ -17,7 +17,6 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script type="text/javascript">
     (function() {
-        // https://dashboard.emailjs.com/admin/account
         emailjs.init('ElvR8U91ELN6yUuSr');
     })();
   </script>
@@ -39,7 +38,16 @@
 				.sendForm("contact_service", "contact_form", this)
 				.then(
 					function () {
-						console.log("Message was sent!");
+            let primaryButton = document.getElementsByClassName("primarybtn")[0]
+            primaryButton.value = "Your message has been sent ✓"
+            primaryButton.style.backgroundColor = "#57b257"
+            setTimeout(() => {
+              primaryButton.value = "Send Message";
+              primaryButton.style.backgroundColor = "rgb(12 74 110 / var(--tw-bg-opacity))";
+              grecaptcha.reset();
+              document.getElementById("g-recaptcha").classList.remove("hidden");
+            }, 5000);
+						// console.log("Message was sent!");
 						document.getElementById("g-recaptcha").classList.add("hidden");
 						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
 						inputs.forEach((input) => {
@@ -122,13 +130,11 @@
         <h2 class="font-sans font-medium text-2xl text-center text-slate-400 leading-tight sm:text-3xl md:text-right lg:leading-tight">Frontend Web Developer</h2>
         <p class="font-body text-lg text-center py-4 sm:text-xl md:text-right lg:py-6 dark:text-slate-50">
           Programming is an opportunity to solve a problem, to build something practical and enjoyable to use. I get a
-          lot of satisfaction building projects from start to finish, including desiging a wireframe prior to coding the
-          project. I'm excellent at problem solving and pride myself on always finding a solution. As part of my
-          professional development, I continue to learn new frameworks, programming languages and tools.
+          lot of satisfaction building projects from start to finish, including desiging wireframes prior to writing code. I'm an excellent problem solver and pride myself on always finding a solution. As part of my
+          professional development, I'm always building something and learning new frameworks, programming languages and tools.
         </p>
         <p class="font-body text-lg text-center py-4 sm:text-xl md:text-right lg:py-6 dark:text-slate-50">
-          On a personal note, I enjoy going to the gym, watching movies, playing the drums on occasion and spending time
-          with my family.
+          On a personal note, I enjoy going to the gym, watching movies or binge watching YouTube, playing the drums and spending time with my family.
         </p>
         <div class="flex flex-wrap justify-center w-full md:justify-end">
           <a href="#portfolio" class="w-40 text-xl font-semibold text-right text-sky-900 hover:text-sky-800 dark:text-slate-50 dark:hover:text-[#bae6fd]">View Portfolio <i class="fa-solid fa-circle-chevron-down"></i></a>
@@ -155,7 +161,7 @@
       <img src="/assets/vuejs.svg" alt="Vue" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">Vue.js</div>
     </div>
-    <div id="skill-item-5" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] lg:w-1/12">
+    <div id="skill-item-5" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
     </div>
@@ -167,9 +173,9 @@
       <img src="/assets/npm.svg" alt="NPM" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">NPM</div>
     </div>
-    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
-      <img src="/assets/git.svg" alt="Git" class="w-12 h-10 absolute top-0 left-auto">
-      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Git</div>
+    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] lg:w-1/12">
+      <img src="/assets/node.svg" alt="Node.js" class="w-12 h-10 absolute top-0 left-auto">
+      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Node.js</div>
     </div>
     <div id="skill-item-9" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/github.svg" alt="GitHub" class="w-12 h-10 absolute top-0 left-auto">
@@ -185,7 +191,7 @@
   <div id="portfolio" class="flex flex-col flex-wrap w-screen gap-[2rem] p-6 md:flex-row md:w-full md:justify-start md:mx-auto md:gap-[2.5rem] lg:w-[1200px] lg:gap-[2.62rem] lg:pt-[115px] lg:mt-[-100px] lg:mb-[-20px] lg:px-0 lg:pb-0">
   </div>
   <div id="p-window" class="card block flex-col w-screen h-full z-30 m-auto p-0 fixed top-auto lg:top-0 bottom-0 left-0 right-0 pb-2 hidden overflow-y-auto lg:w-[600px] lg:h-[82vh]">
-    <div class="close flex absolute top-3 right-4 cursor-pointer font-bold text-sm text-white text-shadow">CLOSE</div>
+    <div class="close flex absolute right-2 top-2 h-8 leading-[1.95rem] px-2.5 rounded-md cursor-pointer font-bold text-lg text-white bg-[#d93025]">⛌</div>
     <div id="modal-content"></div>
   </div>
 

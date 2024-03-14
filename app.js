@@ -115,42 +115,6 @@ skills.forEach((skill) => {
 	});
 });
 
-// CONTACT FORM POWERED BY EMAILJS
-// Add animated ... to send button after click, once sent, button turns green and message says "Message sent!"
-// Show error message on error event below button, use hidden to toggle visibility
-// Reload form or another way to reset recaptcha back to normal after submit without page refresh
-// document.addEventListener('DOMContentLoaded', function () {
-// // window.onload = function () {
-// document
-// .getElementById("contact-form")
-// .addEventListener("submit", function (event) {
-// 	// console.log("Form submitted");
-// 	event.preventDefault();
-// 	// Generate five digit number for contact_number variable
-// 	this.contact_number.value = (Math.random() * 100000) | 0;
-// 	// // Grab recaptcha response
-// 	var token = grecaptcha.getResponse();
-// 	// Send and error handling
-// 	emailjs
-// 		.sendForm("contact_service", "contact_form", this)
-// 		.then(
-// 			function () {
-// 				console.log("Message was sent!");
-// 				document.getElementById("g-recaptcha").classList.add("hidden");
-// 				const inputs = document.querySelectorAll("#user_name, #user_email, #message");
-// 				inputs.forEach((input) => {
-// 					input.value = "";
-// 				});
-// 			},
-// 			function (error) {
-// 				console.log("Failed", error);
-// 			}
-// 		);
-// });
-// });
-
-
-
 // PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
 let projectData = [];
 
@@ -190,16 +154,16 @@ function renderCards(projectData) {
 		// Project Image
 		const mainImageSrc = document.createElement("img");
 		mainImageSrc.setAttribute("src", project.mainImage);
-		mainImageSrc.setAttribute("class", "rounded-xl");
+		mainImageSrc.setAttribute("class", "rounded-xl border border-[#f9f9f9] dark:border-[#28364e]");
 		mainImage.appendChild(mainImageSrc);
 
 		// Project Name & Icons Container
 		const cardHeader = document.createElement("div");
-		cardHeader.setAttribute("class", "flex flex-row w-full justify-center content-center px-2 pt-4 pb-3");
+		cardHeader.setAttribute("class", "flex flex-row w-full justify-between content-center px-2 pt-4 pb-3");
 		newProject.appendChild(cardHeader);
 
 		// Project Name
-		const projectNameList = "flex flex-wrap justify-start content-center w-6/12 text-slate-600 font-bold text-md sm:text-lg dark:text-slate-50";
+		const projectNameList = "flex flex-wrap content-center grow text-slate-600 font-bold text-md sm:text-lg dark:text-slate-50";
 		const projectName = document.createElement("div");
 		projectName.setAttribute("class", projectNameList);
 		projectName.textContent = project.projectName;
@@ -208,7 +172,7 @@ function renderCards(projectData) {
 		// Card Icon Box DIV
 		const cardIconBox = document.createElement("div");
 		cardIconBox.setAttribute("id", "card-icon-box-" + index);
-		cardIconBox.setAttribute("class", "flex justify-end w-6/12");
+		cardIconBox.setAttribute("class", "flex grow");
 		cardHeader.appendChild(cardIconBox);
 
 		// Icons UL
@@ -241,6 +205,10 @@ function renderCards(projectData) {
 			firebase: {
 				data: project.firebase,
 				src: "./assets/firebase.svg",
+			},
+			node: {
+				data: project.node,
+				src: "./assets/node.svg",
 			},
 		};
 
@@ -282,13 +250,14 @@ function renderCards(projectData) {
 		if (project.development === true) {
 			mainImage.classList.add("relative");
 			const badge = document.createElement("div");
-			badge.textContent = "Coming Soon";
+			badge.textContent = "In Development";
 			badge.setAttribute("class", "absolute right-[10px] bottom-[10px] py-1 px-2 text-xs bg-[#00000095] text-slate-50 rounded-md");
 			mainImage.appendChild(badge);
 		}
 	}
 	)
 };
+
 
 	// BUILD PROJECT DETAILS IN MODAL ON CLICK
 	setTimeout((projectData) => {
@@ -381,6 +350,10 @@ function openPortfolio(projectId) {
 				data: project.firebase,
 				src: "./assets/firebase.svg",
 			},
+			node: {
+				data: project.node,
+				src: "./assets/node.svg",
+			},
 		};
 
 		// Iterate over techObject, create new li & show icons if is true
@@ -436,10 +409,3 @@ function windowClose() {
 
 // DYNAMICALLY GENERATE YEAR FOR FOOTER
 document.getElementById("year").innerText = "\u00A0" + new Date().getFullYear() + "\u00A0";
-
-// LOAD CONTENT FROM README.MD & SHOW ON CHANGELOG PAGE
-// Need to setup Webpack first, then use remark-loader (https://www.npmjs.com/package/remark-loader?activeTab=readme)
-
-if (document.readyState === "complete") {
-	console.log('All resources have loaded.');
-}
