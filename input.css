@@ -70,6 +70,9 @@
   .text-shadow {
     text-shadow: 0px 0px 4px black;
   }
+  .h-fit-content {
+    height: fit-content !important;
+  }
 }
 
 @font-face {
