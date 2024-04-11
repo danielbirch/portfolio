@@ -1,25 +1,7 @@
 { "projects": [
   {
-    "projectName": "VIPT SaaS",
-    "id": 0,
-    "excerpt": "A platform for personal trainers which allows them to track their clients progress, create workouts & nutrition plans, send notifications, process payments & more.",
-    "descriptionP1": "Before becoming a developer, I was a personal trainer for many years. I know the industry well and I would like to build a management tool to assist personal trainers to operate their business more effectively. There are very few all-in-one platforms available for personal trainers and I'm confident I can built a very competitive alternative.",
-    "descriptionP2": "VIPT is my passion project and is still under development. Once it's completed, I plan on offering this application as a commercial product.",
-    "descriptionP3": "",
-    "link": "",
-    "mainImage": "./assets/vipt-cover.webp",
-    "html": true,
-    "css": true,
-    "js": true,
-    "vue": true,
-    "tailwind": true,
-    "firebase": true,
-    "node": true,
-    "development": true
-  },
-  {
     "projectName": "Side Gate Builder",
-    "id": 1,
+    "id": 0,
     "excerpt": "An app designed to make it easier for customers & staff to create side gate packages, send quotes via email and place orders using Stripe. A paid client project.",
     "descriptionP1": "I'm quite proud of this app in particular. I pitched and sold this app to the client, planned the project in advance using GitHub projects and completed building the app one month ahead of schedule.",
     "descriptionP2": "The app saves all quotes to a Firestore database, has Stripe integration for payments and a backend Node.js server used to create new products within Stripe prior to checkout. I used EmailJS to send quote and order emails to both the company and the prospect/client. It also has progressive web app (PWA) functionality.",
@@ -37,7 +19,7 @@
   },
   {
     "projectName": "Node/Express Server",
-    "id": 2,
+    "id": 1,
     "excerpt": "A Node.js server with Express, built specifically for the Side Gate Builder app. It handles product creation within Stripe prior to initiating checkout.",
     "descriptionP1": "As I was building the Side Gate Builder app, I realised I would need to create a server to communicate with Stripe's server to create the product prior to checking out.",
     "descriptionP2": "The server is running Node with Express and I've used Helmet to assist in securing the server and adding the appropriate headers. Although no one is likely to see this page (outside of my portfolio) I included a visual cue nonetheless to show that the server is operational.",
@@ -55,7 +37,7 @@
   },
   {
     "projectName": "Time Wise",
-    "id": 3,
+    "id": 2,
     "excerpt": "A client time tracker desktop app using Tauri & Vue. Add clients, view task history, log a message with each task, pomodoro mode and detailed stats for each client.",
     "descriptionP1": "I often need to track the hours I work for clients and existing time trackers lacked the features I needed. So I decided to build my own time tracking app.",
     "descriptionP2": "Start by adding a client in the leftmost column. Click on the client you just created to select them. Now you can log time records by clicking the big start button. You'll see an animation which let's you know that you're currently logging time. Enter a message to be included with the record and click on the button again to log the record. The record will now be shown in the history column for that client. You can also pause or reset the timer or use the pomodoro mode to preset the timer to countdown from 20 minutes to zero and automatically log the record. The statistics for each client automatically calculate as you record time logs.",
@@ -73,7 +55,7 @@
   },
   {
     "projectName": "JS Flashify",
-    "id": 4,
+    "id": 3,
     "excerpt": "A flash card learning tool which I started building to help myself and others to memorise JavaScript & Vue fundamentals and common methods.",
     "descriptionP1": "When I began learning JavaScript, I thought about creating my own flash cards to help me memorise common array methods, frequently used functions and fundamental principles. Then it occurred to me, why not create an application instead? So I started to...but then I landed a paying client and I haven't gotten around to completing this project yet.",
     "descriptionP2": "I decided to use Vue.js for this project due to its speed, the ability to build using components and because I think Vue is really cool 😎. The backend is using Firebase for the database, authentication and file storage. As you scroll through the cards, you’re presented with a question. Think about it and answer the question in your head, click on the card to flip it around and view the answer. If you got it right, click on the green box. If you got it wrong, click on the red box. Then proceed to the next card. Your answers to each card are stored in the database. ",
@@ -91,7 +73,7 @@
   },
   {
     "projectName": "Rocket Tasks",
-    "id": 5,
+    "id": 4,
     "excerpt": "This is my take on the most common application all programmers build, a to do app. It features a date picker, sorting, priority tagging, editing & authentication.",
     "descriptionP1": "My goal with this application was to come up with a clean, simple UI that allows the user to focus on managing and completing their tasks with minimal distractions.",
     "descriptionP2": "Start by choosing the task due date with the date picker, set the priority, enter the name of your to do item and click the check marks or press enter to save the task.",
@@ -109,7 +91,7 @@
   },
   {
     "projectName": "Counter",
-    "id": 6,
+    "id": 5,
     "excerpt": "This is the first JavaScript project I completed on my own. I researched and implemented local storage to achieve save, load and reset functionality.",
     "descriptionP1": "Incremental Counter allows the user to keep count by manually clicking the plus and minus buttons. The program allows you to save a number to local storage by clicking ‘Save’, to reset the display to zero by clicking ‘Reset’ and to load the previously saved number by clicking ‘Load’.",
     "descriptionP2": "While building this program I learned about using and interacting with local storage. It was a milestone for me, as it’s the first JavaScript program I wrote by myself.",
@@ -124,6 +106,24 @@
     "firebase": false,
     "node": false,
     "development": false
+  },
+  {
+    "projectName": "VIPT SaaS",
+    "id": 6,
+    "excerpt": "A platform for personal trainers which allows them to track their clients progress, create workouts & nutrition plans, send notifications, process payments & more.",
+    "descriptionP1": "Before becoming a developer, I was a personal trainer for many years. I know the industry well and I would like to build a management tool to assist personal trainers to operate their business more effectively. There are very few all-in-one platforms available for personal trainers and I'm confident I can built a very competitive alternative.",
+    "descriptionP2": "VIPT is my passion project and is still under development. Once it's completed, I plan on offering this application as a commercial product.",
+    "descriptionP3": "",
+    "link": "",
+    "mainImage": "./assets/vipt-cover.webp",
+    "html": true,
+    "css": true,
+    "js": true,
+    "vue": true,
+    "tailwind": true,
+    "firebase": true,
+    "node": true,
+    "development": true
   }
 ]
 }
