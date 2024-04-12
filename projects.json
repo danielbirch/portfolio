@@ -6,7 +6,7 @@
     "descriptionP1": "I'm quite proud of this app in particular. I pitched and sold this app to the client, planned the project in advance using GitHub projects and completed building the app one month ahead of schedule.",
     "descriptionP2": "The app saves all quotes to a Firestore database, has Stripe integration for payments and a backend Node.js server used to create new products within Stripe prior to checkout. I used EmailJS to send quote and order emails to both the company and the prospect/client. It also has progressive web app (PWA) functionality.",
     "descriptionP3": "I continue to work with this client, adding new features and maintaining the app. This is not the actual production version of the app, but rather a copy of it for use on my portfolio. The repo is private to protect my clients' interests, however I'm happy to share the source code in person during an interview.",
-    "link": "https://jocular-truffle-4287d4.netlify.app/",
+    "link": "https://sidegate.supergates.com.au",
     "mainImage": "./assets/sg-diy-side-gate-cover.webp",
     "html": true,
     "css": true,
