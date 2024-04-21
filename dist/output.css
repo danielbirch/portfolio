@@ -858,10 +858,6 @@ video {
   height: 41px;
 }
 
-.h-\[600px\] {
-  height: 600px;
-}
-
 .h-\[70px\] {
   height: 70px;
 }
@@ -870,16 +866,12 @@ video {
   height: auto;
 }
 
-.h-screen {
-  height: 100vh;
-}
-
-.h-\[650px\] {
-  height: 650px;
-}
-
 .h-full {
   height: 100%;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-\[45vh\] {
@@ -1567,10 +1559,6 @@ video {
 
   .md\:ml-5 {
     margin-left: 1.25rem;
-  }
-
-  .md\:h-\[650px\] {
-    height: 650px;
   }
 
   .md\:h-\[700px\] {
