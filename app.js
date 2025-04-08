@@ -119,7 +119,7 @@ if (budgetInfoIcon) {
   const tooltip = document.createElement('div');
   tooltip.textContent = "This helps me understand the size & scope of your project.";
   tooltip.className = "absolute bg-slate-700 text-slate-50 text-xs rounded px-3 py-1 whitespace-nowrap z-50 hidden";
-  tooltip.style.top = "22px";
+  tooltip.style.top = "24px";
   tooltip.style.left = "-20px";
 
   budgetInfoIcon.parentElement.style.position = "relative";
