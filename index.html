@@ -49,10 +49,11 @@
             }, 5000);
 						// console.log("Message was sent!");
 						document.getElementById("g-recaptcha").classList.add("hidden");
-						const inputs = document.querySelectorAll("#user_name, #user_email, #message");
+						const inputs = document.querySelectorAll("#user_name, #user_email, #user_mobile, #message");
 						inputs.forEach((input) => {
 							input.value = "";
 						});
+            document.getElementById("user_budget").selectedIndex = 0;
 					},
 					function (error) {
 						console.log("Failed", error);
@@ -91,7 +92,7 @@
         </nav>
       </div>
       <div class="flex flex-auto flex-wrap justify-end content-center w-2/12 p-3">
-        <a href="#contact" class="px-4 py-2 bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Contact Me</a>
+        <a href="#call" class="px-4 py-2 bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Schedule a Call</a>
       </div>
       <div class="flex flex-auto flex-wrap justify-end content-center w-1/12">
         <a href="https://github.com/danielbirch" target="_blank"><i class="fa-brands fa-github m-3 text-2xl"></i></a>
@@ -114,7 +115,7 @@
         <i id="darkmob" class="toggle-dark-mode fa-solid fa-lightbulb m-3 text-2xl cursor-pointer hidden"></i>
       </div>
       <div class="flex flex-wrap justify-center content-center w-screen p-3 mt-5 mb-5">
-        <a href="#contact" class="px-4 py-2 bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Contact Me</a>
+        <a href="#call" class="px-4 py-2 bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 text-slate-50 rounded-md text-[1.03rem] font-semibold">Schedule a Call</a>
       </div>
     </div>
   </div>
@@ -127,7 +128,7 @@
       </div>
       <div id="about-text" class="flex flex-wrap flex-col justify-center content-center pl-8 pr-8 pb-14 md:w-6/12 lg:w-8/12 lg:pl-16 lg:pr-4 lg:pb-16">
         <h1 class="font-sans font-semibold text-4xl text-center text-slate-500 leading-tight sm:text-5xl md:text-right md:leading-tight dark:text-slate-50">Daniel Birch</h1>
-        <h2 class="font-sans font-medium text-2xl text-center text-slate-400 leading-tight sm:text-3xl md:text-right lg:leading-tight">Frontend Web Developer</h2>
+        <h2 class="font-sans font-medium text-2xl text-center text-slate-400 leading-tight sm:text-3xl md:text-right lg:leading-tight">Full-Stack Developer</h2>
         <p class="font-body text-lg text-center py-4 sm:text-xl md:text-right lg:py-6 dark:text-slate-50">
           Programming is an opportunity to solve a problem, to build something practical and enjoyable to use. I get a
           lot of satisfaction building projects from start to finish, including desiging wireframes prior to writing code. I'm an excellent problem solver and pride myself on always finding a solution. As part of my
@@ -196,21 +197,24 @@
   </div>
 
   <!-- CONTACT -->
-  <div id="contact" class="p-5 lg:p-0 lg:pt-7">
+  <div id="call" class="p-5 lg:p-0 lg:pt-7">
     <div class="card w-full mx-auto mt-4 p-10 py-12 lg:py-16 lg:mt-16 lg:w-[1200px]">
-      <div class="flex mx-auto">
-        <h3 class="font-body font-bold text-3xl text-slate-500 leading-tight dark:text-slate-50">Contact Me</h3>
+      <div class="flex flex-col mx-auto">
+
+        <h3 class="font-body font-bold text-3xl text-slate-500 text-center leading-tight dark:text-slate-50">Schedule a Free Consultation</h3>
       </div>
       <div class="flex mx-auto lg:w-9/12 flex-col">
         <p class="font-body text-lg text-center pt-2 pb-8 lg:text-xl">
-          If you would like to send me a message, please complete the form below and I'll get back to you shortly. I'm
-          currently open to the following opportunities: full time jobs, remote positions, freelance projects.
+          If you have a project or idea you'd like to discuss, send me a message and we'll jump on a quick 20 minute call to see if we're a good fit for each other. I only work with a handful of clients at any one time, which ensures you'll have my full undivided attention.
         </p>
       </div>
+
       <div class="flex flex-wrap mx-auto justify-center content-center lg:w-full">
+
         <form id="contact-form" class="lg:w-1/2">
           <fieldset>
             <div class="flex flex-col w-full justify-center lg:flex-row">
+
               <div class="flex flex-col w-auto m-2 sm:w-[450px] md:w-[540px] lg:w-1/2">
                 <input type="hidden" name="contact_number">
                 <label for="fname" class="font-semibold text-slate-600 pb-1 dark:text-slate-50">First Name</label>
@@ -220,18 +224,58 @@
                 <label for="email" class="font-semibold text-slate-600 pb-1 dark:text-slate-50">Email</label>
                 <input type="email" id="user_email" name="user_email" class="bg-slate-100 rounded-md text-lg px-3 py-3 outline-offset-0 outline-2 outline-sky-800 dark:text-slate-50 dark:bg-[#1E293B]" required>
               </div>
+
             </div>
+
+            <div class="flex flex-col w-full justify-center lg:flex-row">
+
+              <div class="flex flex-col w-auto m-2 sm:w-[450px] md:w-[540px] lg:w-1/2">
+                <label for="mobile" class="font-semibold text-slate-600 pb-1 dark:text-slate-50">Mobile Number</label>
+                <input type="numeric" id="user_mobile" name="user_mobile" class="bg-slate-100 rounded-md text-lg px-3 py-3 outline-offset-0 outline-2 outline-sky-800 dark:text-slate-50 dark:bg-[#1E293B]" required>
+              </div>
+
+              <div class="flex flex-col w-auto m-2 lg:w-1/2">
+                <div class="flex flex-row justify-items-center items-center pb-1">
+                  <label for="budget" class="font-semibold text-slate-600 pr-1 dark:text-slate-50">Estimated Budget</label>
+
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="14" height="14" fill="#475569" class="cursor-pointer">
+                    <path d="M464 256A208 208 0 1 0 48 256a208 208 0 1 0 416 0zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm169.8-90.7c7.9-22.3 29.1-37.3 52.8-37.3l58.3 0c34.9 0 63.1 28.3 63.1 63.1c0 22.6-12.1 43.5-31.7 54.8L280 264.4c-.2 13-10.9 23.6-24 23.6c-13.3 0-24-10.7-24-24l0-13.5c0-8.6 4.6-16.5 12.1-20.8l44.3-25.4c4.7-2.7 7.6-7.7 7.6-13.1c0-8.4-6.8-15.1-15.1-15.1l-58.3 0c-3.4 0-6.4 2.1-7.5 5.3l-.4 1.2c-4.4 12.5-18.2 19-30.6 14.6s-19-18.2-14.6-30.6l.4-1.2zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+                  </svg>
+                </div>
+
+                <div class="relative">
+                  <select id="user_budget" name="user_budget" class="appearance-none bg-slate-100 rounded-md text-lg px-3 py-3 pr-10 w-full outline-offset-0 outline-2 outline-sky-800 dark:text-slate-50 dark:bg-[#1E293B]" required >
+                    <option value="" disabled selected>Select...</option>
+                    <option value="5k-10k">€5,000 – €10,000</option>
+                    <option value="10k-20k">€10,000 – €20,000</option>
+                    <option value="20k-50k">€20,000 – €50,000</option>
+                    <option value="50k-100k">€50,000 – €100,000</option>
+                    <option value="100k-plus">Over €100,000</option>
+                  </select>
+                  <div class="pointer-events-none absolute right-3 top-1/2 transform -translate-y-1/2 text-slate-500">
+                    <svg class="w-5 h-5" fill="#475569" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 12a1 1 0 0 1-.707-.293l-3-3a1 1 0 1 1 1.414-1.414L10 9.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-3 3A1 1 0 0 1 10 12z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
             <div class="flex flex-wrap flex-col m-2">
               <label for="message" class="font-semibold text-slate-600 pb-1 dark:text-slate-50">Message</label>
               <textarea rows="2" type="textarea" id="message" name="message" class="bg-slate-100 rounded-md text-lg h-20 mb-4 px-3 py-3 outline-offset-0 outline-2 outline-sky-800 dark:text-slate-50 dark:bg-[#1E293B]" required></textarea>
             </div>
+
             <div class="flex flex-wrap flex-col m-2">
               <div id="g-recaptcha" class="mb-5"></div>
               <input type="submit" value="Send Message" class="primarybtn">
             </div>
+
           </fieldset>
           <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
         </form>
+
       </div>
     </div>
   </div>
@@ -264,12 +308,12 @@
   <script type="text/javascript">
     // ensures scroll to contact works when coming from another page
     document.addEventListener('readystatechange', function () {
-      if (document.readyState === 'complete' && window.location.hash === '#contact') {
-        const contactEl = document.querySelector('#contact')
+      if (document.readyState === 'complete' && window.location.hash === '#call') {
+        const contactEl = document.querySelector('#call')
         if (contactEl) {
           history.replaceState(null, null, window.location.pathname)
           setTimeout(() => {
-            location.hash = '#contact'
+            location.hash = '#call'
             contactEl.scrollIntoView({ behavior: 'smooth' })
           }, 300)
         }

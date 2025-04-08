@@ -113,6 +113,32 @@ skills.forEach((skill) => {
 	});
 });
 
+// TOOLTIP FOR BUDGET INFO ICON IN CONTACT FORM
+const budgetInfoIcon = document.querySelector('label[for="budget"] + svg');
+if (budgetInfoIcon) {
+  const tooltip = document.createElement('div');
+  tooltip.textContent = "This helps me understand the size & scope of your project.";
+  tooltip.className = "absolute bg-slate-700 text-slate-50 text-xs rounded px-3 py-1 whitespace-nowrap z-50 hidden";
+  tooltip.style.top = "22px";
+  tooltip.style.left = "-20px";
+
+  budgetInfoIcon.parentElement.style.position = "relative";
+  budgetInfoIcon.parentElement.appendChild(tooltip);
+
+  budgetInfoIcon.addEventListener("mouseenter", () => {
+    tooltip.classList.remove("hidden");
+    gsap.fromTo(tooltip, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+  });
+
+  budgetInfoIcon.addEventListener("mouseleave", () => {
+    gsap.fromTo(tooltip, { opacity: 1 }, {
+      opacity: 0,
+      duration: 0.25,
+      onComplete: () => tooltip.classList.add("hidden")
+    });
+  });
+}
+
 // PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
 let projectData = [];
 
