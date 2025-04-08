@@ -3,7 +3,7 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-  <title>Daniel Birch | Frontend Web Developer</title>
+  <title>Daniel Birch | Full-Stack Developer</title>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,21 +161,21 @@
       <img src="/assets/vuejs.svg" alt="Vue" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">Vue.js</div>
     </div>
-    <div id="skill-item-5" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
-      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
-      <div id="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
+    <div id="skill-item-5" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] lg:w-1/12">
+      <img src="/assets/node.svg" alt="Node.js" class="w-12 h-10 absolute top-0 left-auto">
+      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Node.js</div>
     </div>
     <div id="skill-item-6" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/firebase.svg" alt="Firebase" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
     </div>
     <div id="skill-item-7" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
+      <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
+      <div id="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
+    </div>
+    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/npm.svg" alt="NPM" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">NPM</div>
-    </div>
-    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] lg:w-1/12">
-      <img src="/assets/node.svg" alt="Node.js" class="w-12 h-10 absolute top-0 left-auto">
-      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Node.js</div>
     </div>
     <div id="skill-item-9" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/github.svg" alt="GitHub" class="w-12 h-10 absolute top-0 left-auto">
@@ -259,6 +259,22 @@
         'sitekey': '6LdHl44lAAAAAFoPrGjqjxm-HjbvKmaLhOZVbyhU'
       });
     };
+  </script>
+
+  <script type="text/javascript">
+    // ensures scroll to contact works when coming from another page
+    document.addEventListener('readystatechange', function () {
+      if (document.readyState === 'complete' && window.location.hash === '#contact') {
+        const contactEl = document.querySelector('#contact')
+        if (contactEl) {
+          history.replaceState(null, null, window.location.pathname)
+          setTimeout(() => {
+            location.hash = '#contact'
+            contactEl.scrollIntoView({ behavior: 'smooth' })
+          }, 300)
+        }
+      }
+    })
   </script>
 
 </body>

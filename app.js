@@ -1,5 +1,3 @@
-// GLOBAL SCOPE
-
 // MOBILE MENU ACTION
 const mobileMenu = document.getElementById("mobile-icon");
 mobileMenu.addEventListener("click", openMenu);
@@ -137,7 +135,6 @@ window.onload = function () {
 
 function renderCards(projectData) {
 	projectData.forEach((project, index) => {
-		// console.log(`Index:${index}`, project);
 
 		// Render cards on page
 		const portfolioSection = document.getElementById("portfolio");
@@ -256,20 +253,16 @@ function renderCards(projectData) {
 		}
 	}
 	)
-};
-
 
 	// BUILD PROJECT DETAILS IN MODAL ON CLICK
-	setTimeout((projectData) => {
 		const portfolioButtons = document.querySelectorAll(".view-button");
 		portfolioButtons.forEach((button) => {
 			button.addEventListener("click", (e) => {
 				let projectId = e.target.dataset.id;
-				// console.log(projectData); // Why is this undefined, it's in global scope?
 				openPortfolio(projectId);
 			});
 		});
-	}, 1000);
+};
 
 let pWindow = document.getElementById("p-window");
 const modalContent = document.getElementById("modal-content");
@@ -312,12 +305,22 @@ function openPortfolio(projectId) {
 		modalHeader.appendChild(otherPart);
 
 		// Modal View Project Button
-		let viewButton = document.createElement("a");
-		viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[15px] lg:text-[1.05rem] font-semibold cursor-pointer");
-		viewButton.setAttribute('href', project.link);
-		viewButton.setAttribute('target', '_blank');
-		viewButton.textContent = "View Project";
-		otherPart.appendChild(viewButton);
+
+		// hide the button on node server project
+		if (project.projectName === 'Node/Express Server') {
+			let viewButton = document.createElement("a");
+			viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[15px] lg:text-[1.05rem] font-semibold cursor-pointer invisible");
+			viewButton.setAttribute('target', '_blank');
+			viewButton.textContent = "View Project";
+			otherPart.appendChild(viewButton);
+		} else {
+			let viewButton = document.createElement("a");
+			viewButton.setAttribute("class", "view-button w-full bg-sky-900 hover:bg-sky-800 transition ease-in-out duration-500 p-3 text-slate-50 text-center rounded-md text-[15px] lg:text-[1.05rem] font-semibold cursor-pointer");
+			viewButton.setAttribute('href', project.link);
+			viewButton.setAttribute('target', '_blank');
+			viewButton.textContent = "View Project";
+			otherPart.appendChild(viewButton);
+		}
 
 		// Modal Icons UL
 		const techUsed = document.createElement("ul");
