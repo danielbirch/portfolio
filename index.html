@@ -84,47 +84,10 @@
     padding: 1rem;
   }
 }
-
-@media screen and (orientation: landscape) and (max-width: 768px) {
-  html, body {
-    height: 100%;
-    overflow: hidden;
-  }
-
-  #orientation-lock {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: #000000dd;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    z-index: 9999;
-    text-align: center;
-    padding: 1rem;
-  }
-}
 </style>
-
-<script>
-  function toggleOrientationOverlay() {
-  const overlay = document.getElementById("orientation-lock");
-  const isLandscape = window.matchMedia("(orientation: landscape) and (max-width: 768px)").matches;
-  overlay.classList.toggle("hidden", !isLandscape);
-}
-
-window.addEventListener("orientationchange", toggleOrientationOverlay);
-window.addEventListener("resize", toggleOrientationOverlay);
-document.addEventListener("DOMContentLoaded", toggleOrientationOverlay);
-</script>
 
 <body class="w-screen bg-[#fff] dark:bg-[#1E293B] font-body text-base text-slate-600 subpixel-antialiased md:w-full">
   <div id="overlay" class="fixed z-20 w-screen h-screen bg-slate-950/50 hidden"></div>
-  <div id="orientation-lock" class="hidden">
-    Please rotate your device to portrait mode for the best experience.
-  </div>
 
   <!-- MOBILE HEADER -->
   <header class="flex flex-row w-screen h-[70px] justify-center mb-10 fixed top-0 left-0 right-0 bg-[#fff] z-20 dbshadow lg:hidden">
