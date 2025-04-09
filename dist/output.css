@@ -648,7 +648,7 @@ video {
   height: 100%;
 }
 
-.hidden {
+.hide {
   display: none !important;
 }
 
@@ -892,6 +892,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.min-h-\[40vh\] {
+  min-height: 40vh;
 }
 
 .min-h-\[45vh\] {
@@ -1526,12 +1530,6 @@ video {
   src: url(/fonts/Pacaembu-Thin-Trial.woff);
 }
 
-@media (min-width: 1200px) {
-  .lg\:hidden {
-    display: none !important;
-  }
-}
-
 .hover\:bg-sky-800:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(7 89 133 / var(--tw-bg-opacity));
@@ -1576,6 +1574,14 @@ video {
   .sm\:mx-auto {
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:hidden {
+    display: none;
   }
 
   .sm\:min-h-\[35vh\] {
@@ -1627,6 +1633,14 @@ video {
 
   .md\:ml-5 {
     margin-left: 1.25rem;
+  }
+
+  .md\:flex {
+    display: flex;
+  }
+
+  .md\:hidden {
+    display: none;
   }
 
   .md\:h-\[700px\] {

@@ -66,12 +66,12 @@ document.addEventListener("DOMContentLoaded", loadMode);
 function toggleDarkMode() {
 	if (htmlUpdate.classList.contains("dark")) {
 		toggleElements.forEach((element) => {
-			element.classList.toggle("hidden");
+			element.classList.toggle("hide");
 			htmlUpdate.classList.remove("dark");
 		});
 	} else {
 		toggleElements.forEach((element) => {
-			element.classList.toggle("hidden");
+			element.classList.toggle("hide");
 			htmlUpdate.classList.add("dark");
 		});
 	}
@@ -88,11 +88,11 @@ function loadMode(saveValue) {
 	const getValue = localStorage.getItem("Dark Mode");
 	if (getValue === "true") {
 		htmlUpdate.classList.add("dark");
-		if (dark.classList.contains("hidden") || darkMob.classList.contains("hidden")) {
-			dark.classList.remove("hidden");
-			light.classList.add("hidden");
-			darkMob.classList.remove("hidden");
-			lightMob.classList.add("hidden");
+		if (dark.classList.contains("hide") || darkMob.classList.contains("hide")) {
+			dark.classList.remove("hide");
+			light.classList.add("hide");
+			darkMob.classList.remove("hide");
+			lightMob.classList.add("hide");
 		}
 	} else {
 		htmlUpdate.classList.remove("dark");

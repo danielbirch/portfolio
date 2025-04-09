@@ -45,7 +45,7 @@
     bottom: -1px;
     height: 100%;
   }
-  .hidden {
+  .hide {
     display: none !important;
   }
   #tooltip {
