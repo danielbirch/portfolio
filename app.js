@@ -23,6 +23,32 @@ function openMenu() {
 	}
 }
 
+function closeMenuOnLinkClick() {
+	const menuToHide = document.getElementById("mobile-menu");
+	const mobileLinks = document.querySelectorAll("#mobile-menu a");
+
+	mobileLinks.forEach(link => {
+		link.addEventListener("click", () => {
+			if (!menuToHide.classList.contains("hidden")) {
+				gsap.fromTo(
+					menuToHide,
+					{ top: 0, duration: 0.5, ease: "power1" },
+					{
+						top: -400,
+						duration: 0.5,
+						ease: "power1",
+						onComplete: () => {
+							menuToHide.classList.add("hidden");
+						}
+					}
+				);
+			}
+		});
+	});
+}
+
+closeMenuOnLinkClick();
+
 // DARK MODE TOGGLE V2
 const toggleElements = document.querySelectorAll(".toggle-dark-mode");
 const dark = document.getElementById("dark");
