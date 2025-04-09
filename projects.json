@@ -2,7 +2,7 @@
   {
     "projectName": "Side Gate Builder",
     "id": 0,
-    "excerpt": "An app designed to make it easier for customers & staff to create side gate packages, send quotes via email and place orders using Stripe. A paid client project.",
+    "excerpt": "A direct sales & lead generation app designed to make it easier for customers to create their own side gate packages, receive quotes & place orders using Stripe.",
     "descriptionP1": "I'm quite proud of this app in particular. I pitched and sold this app to the client, planned the project in advance using GitHub projects and completed building the app one month ahead of schedule.",
     "descriptionP2": "The app saves all quotes to a Firestore database, has Stripe integration for payments and a backend Node.js server used to create new products within Stripe prior to checkout. I used EmailJS to send quote and order emails to both the company and the prospect/client. It also has progressive web app (PWA) functionality.",
     "descriptionP3": "I continue to work with this client, adding new features and maintaining the app. The repo is private to protect my clients' interests, however I'm happy to share the source code in person during an interview.",
@@ -20,7 +20,7 @@
   {
     "projectName": "Fencing Estimator",
     "id": 1,
-    "excerpt": "The Side Gate Builder was cloned and repurposed to generate fencing & gate estimates and send the estimates to the client via email. A paid client project.",
+    "excerpt": "The Side Gate Builder was duplicated and repurposed to generate commercial fencing & gate estimates and send the estimates to the client via email.",
     "descriptionP1": "During the development process of the Side Gate Builder, the client expressed an interest in having a similar app to be able to generate estimates for fencing & gate projects. ",
     "descriptionP2": "This app also saves all estimates into a Firestore database, is integrated with EmailJS for sending estimates to the client and also generates a PDF of the estimate summary. Apart from the UI which was cloned, all the functionality for this app was completed within approximately 4 weeks, whilst I was simultaneously working on the Side Gate Builder.",
     "descriptionP3": "I continue to work with this client, adding new features and maintaining the app. The repo is private to protect my clients' interests, however I'm happy to share the source code in person during an interview.",
@@ -54,12 +54,12 @@
     "development": true
   },
   {
-    "projectName": "Node/Express Server",
+    "projectName": "Product Creation Server",
     "id": 3,
-    "excerpt": "A Node.js server with Express, built specifically for the Side Gate Builder app. It handles product creation within Stripe prior to initiating checkout.",
+    "excerpt": "A Node.js/Express server, built specifically for the Supergates Side Gate Builder app. It handles product creation within Stripe prior to initiating checkout.",
     "descriptionP1": "As I was building the Side Gate Builder app, I realised I would need to create a server to communicate with Stripe's server to create the product prior to checking out.",
-    "descriptionP2": "The server is running Node with Express and I've used Helmet to assist in securing the server and adding the appropriate headers. Although no one is likely to see this page (outside of my portfolio) I included a visual cue nonetheless to show that the server is operational.",
-    "descriptionP3": "This is not the actual production server, but rather a copy of it for use on my portfolio. The repo is private to protect my clients' interests, however I'm happy to share the source code in person during an interview.",
+    "descriptionP2": "The server is running Node with Express and I've used Helmet to assist in securing the server and adding the appropriate headers. The server is setup so that it can be used for other on-demand cloud functions as the needs of the business expand.",
+    "descriptionP3": "",
     "mainImage": "./assets/sg-node-express-server-cover.webp",
     "html": true,
     "css": false,
