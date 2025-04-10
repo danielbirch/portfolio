@@ -165,6 +165,23 @@ if (budgetInfoIcon) {
   });
 }
 
+  
+  // Mobile Safari fix – toggle tooltip on tap
+  let tooltipVisible = false;
+  budgetInfoIcon.addEventListener("click", () => {
+    tooltipVisible = !tooltipVisible;
+    if (tooltipVisible) {
+      tooltip.classList.remove("hidden");
+      gsap.fromTo(tooltip, { opacity: 0 }, { opacity: 1, duration: 0.25 });
+    } else {
+      gsap.fromTo(tooltip, { opacity: 1 }, {
+        opacity: 0,
+        duration: 0.25,
+        onComplete: () => tooltip.classList.add("hidden")
+      });
+    }
+  });
+
 // PORTFOLIO GRID GENERATION BASED ON JSON OBJECTS
 let projectData = [];
 
