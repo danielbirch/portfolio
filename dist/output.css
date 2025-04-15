@@ -1980,6 +1980,14 @@ video {
     padding-top: 100px;
   }
 
+  .lg\:pb-2 {
+    padding-bottom: 0.5rem;
+  }
+
+  .lg\:pb-4 {
+    padding-bottom: 1rem;
+  }
+
   .lg\:text-\[1\.05rem\] {
     font-size: 1.05rem;
   }
