@@ -1619,6 +1619,14 @@ video {
     margin-bottom: -2em;
   }
 
+  .max-sm\:mb-0 {
+    margin-bottom: 0px;
+  }
+
+  .max-sm\:mt-0 {
+    margin-top: 0px;
+  }
+
   .max-sm\:p-4 {
     padding: 1rem;
   }
