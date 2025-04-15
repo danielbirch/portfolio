@@ -165,7 +165,7 @@
   </div>
 
   <!-- SKILLS -->
-  <div id="skills" class="card h-20 mx-6 mb-8 p-4 justify-center content-evenly lg:w-[1200px] lg:mx-auto lg:mb-14 lg:content-between">
+  <div id="skills" class="card h-20 mx-6 mb-8 p-4 justify-center content-evenly max-sm:mb-[-2em] max-lg:mb-[-2em] lg:w-[1200px] lg:mx-auto lg:mb-12 lg:content-between">
     <div id="skill-item-1" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] lg:w-1/12">
       <img src="/assets/html5.svg" alt="HTML" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">HTML5</div>
@@ -191,25 +191,25 @@
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">Firebase</div>
     </div>
     <div id="skill-item-7" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
+      <img src="/assets/capacitor.svg" alt="Capacitor" class="w-12 h-10 absolute top-0 left-auto">
+      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Capacitor</div>
+    </div>
+    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
+      <img src="/assets/tauri.svg" alt="Tauri" class="w-12 h-10 absolute top-0 left-auto">
+      <div id="tooltip" class="absolute left-auto top-[48px] hidden">Tauri</div>
+    </div>
+    <div id="skill-item-9" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/tailwind-css.svg" alt="TailwindCSS" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">TailwindCSS</div>
     </div>
-    <div id="skill-item-8" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
-      <img src="/assets/npm.svg" alt="NPM" class="w-12 h-10 absolute top-0 left-auto">
-      <div id="tooltip" class="absolute left-auto top-[48px] hidden">NPM</div>
-    </div>
-    <div id="skill-item-9" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
+    <div id="skill-item-10" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
       <img src="/assets/github.svg" alt="GitHub" class="w-12 h-10 absolute top-0 left-auto">
       <div id="tooltip" class="absolute left-auto top-[48px] hidden">GitHub</div>
-    </div>
-    <div id="skill-item-10" class="skill-item flex flex-wrap justify-center content-center p-1 w-2/12 cursor-crosshair relative h-[41px] hidden lg:!flex lg:w-1/12">
-      <img src="/assets/vscode.svg" alt="VS Code" class="w-12 h-10 absolute top-0 left-auto">
-      <div id="tooltip" class="absolute left-auto top-[48px] hidden">VS Code</div>
     </div>
   </div>
 
   <!-- PORTFOLIO -->
-  <div id="portfolio" class="flex flex-col flex-wrap w-screen gap-[2rem] p-6 md:flex-row md:w-full md:justify-start md:mx-auto md:gap-[2.5rem] lg:w-[1200px] lg:gap-[2.62rem] lg:pt-[115px] lg:mt-[-100px] lg:mb-[-20px] lg:px-0 lg:pb-0">
+  <div id="portfolio" class="flex flex-col flex-wrap w-screen gap-[2rem] p-6 md:flex-row md:w-full md:justify-start md:mx-auto md:gap-[2.5rem] max-sm:pt-[5em] max-lg:pt-[5em] lg:w-[1200px] lg:gap-[2.62rem] lg:pt-[100px] lg:mt-[-100px] lg:mb-[-20px] lg:px-0 lg:pb-0">
   </div>
   <div id="p-window" class="card block flex-col w-screen h-full z-30 m-auto p-0 fixed top-auto lg:top-0 bottom-0 left-0 right-0 pb-2 hidden overflow-y-auto lg:rounded-lg lg:w-[600px] md:h-[700px]">
     <div class="close flex absolute right-2 top-2 h-8 leading-[1.95rem] px-2.5 rounded-md cursor-pointer font-bold text-lg text-white bg-[#d93025] z-10">⛌</div>
@@ -221,10 +221,10 @@
     <div class="card w-full mx-auto mt-4 p-10 py-12 sm:p-[30px] lg:py-16 lg:mt-16 lg:w-[1200px]">
       <div class="flex flex-col lg:mx-auto">
 
-        <h3 class="font-body font-bold text-3xl text-slate-500 text-center leading-tight dark:text-slate-50">Schedule a Free Consultation</h3>
+        <h3 class="font-body font-bold text-3xl text-slate-500 text-center leading-tight dark:text-slate-50">Schedule a Free Consultation & Quote</h3>
       </div>
       <div class="flex lg:mx-auto lg:w-9/12 flex-col">
-        <p class="font-body text-lg text-center pt-2 pb-2 lg:text-xl">
+        <p class="font-body text-lg text-center pt-2 pb-8 lg:text-xl">
           If you have a project or idea you'd like to discuss, send me a message and we'll jump on a quick 20 minute call to see if we're a good fit for each other. I only work with a handful of clients at any one time, which ensures you'll have my full undivided attention.
         </p>
       </div>
@@ -305,6 +305,9 @@
     <div id="copyright" class="flex flex-wrap justify-center content-center w-5/6 p-2 sm:p-1 md:w-8/12 md:justify-start lg:w-8/12 lg:p-2">
       Copyright © <span id="year"></span> Daniel Birch.&nbsp;<span>All rights reserved.</span>
     </div>
+    <div id="whatsapp" class="flex flex-wrap justify-center content-center">
+      <a aria-label="Chat on WhatsApp" href="https://wa.me/37253903300?text=Hi,%20%20I%20have%20a%20project%20I’d%20like%20to%20discuss%20with%20you." target="_blank"> <img alt="Chat on WhatsApp" src="WhatsAppButtonGreenLarge.svg" /></a>
+    </div>
     <div id="links" class="flex flex-wrap justify-center content-center p-2 sm:p-1 md:w-2/12 lg:p-2 lg:justify-end">
       <nav>
         <a href="/privacy.html" class="link-footer">Privacy</a>
@@ -315,6 +318,8 @@
         <img src="https://api.netlify.com/api/v1/badges/53fb8254-75a7-42fc-a6b8-13f269fda489/deploy-status" alt="Netlify Status">
       </a>
     </div>
+
+
   </footer>
 
   <script src="/app.js" defer></script>
