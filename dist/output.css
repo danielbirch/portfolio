@@ -1630,6 +1630,10 @@ video {
   .max-sm\:pt-2 {
     padding-top: 0.5rem;
   }
+
+  .max-sm\:pb-0 {
+    padding-bottom: 0px;
+  }
 }
 
 @media (min-width: 640px) {
