@@ -1623,6 +1623,11 @@ video {
     right: 1.3em;
   }
 
+  .max-sm\:mx-\[10px\] {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
   .max-sm\:mb-\[-2em\] {
     margin-bottom: -2em;
   }
