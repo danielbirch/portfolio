@@ -86,7 +86,7 @@
     "tailwind": false,
     "firebase": true,
     "node": true,
-    "development": true
+    "development": false
   }
 ]
 }
